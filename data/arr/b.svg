@@ -1,2 +1,130 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<svg baseProfile="tiny" height="100%" version="1.2" viewBox="0 0 1920 1080" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xlink="http://www.w3.org/1999/xlink"><defs /><image height="664.891" id="cl1-heleenba" width="389.8384" x="0" xlink:href="../clips/kbox/cl1-heleenba.png" y="0" /><image height="668.3113" id="cl1-roland" width="387.8432" x="0" xlink:href="../clips/kbox/cl1-roland.png" y="0" /><image height="686.4931" id="cl2-fienc" width="377.5712" x="0" xlink:href="../clips/kbox/cl2-fienc.png" y="0" /><image height="657.8146" id="cl2-heleenba" width="394.032" x="0" xlink:href="../clips/kbox/cl2-heleenba.png" y="0" /><image height="586.6515" id="cl3-carolien" width="441.8296" x="0" xlink:href="../clips/kbox/cl3-carolien.png" y="0" /><image height="464.497" id="cl3-sanderijn-video" width="558.0229" x="0" xlink:href="../clips/kbox/cl3-sanderijn-video.png" y="0" /><image height="678.8225" id="cl-geert" width="381.8377" x="0" xlink:href="../clips/kbox/cl-geert.png" y="0" /><image height="462.9753" id="extra-dans-florentine-rosalie" width="559.8571" x="0" xlink:href="../clips/kbox/extra-dans-florentine-rosalie.png" y="0" /></svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   height="100%"
+   version="1.2"
+   viewBox="0 0 1920 1080"
+   width="100%"
+   id="svg13"
+   sodipodi:docname="b.svg"
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)">
+  <metadata
+     id="metadata17">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     id="namedview15"
+     showgrid="false"
+     inkscape:zoom="0.38375274"
+     inkscape:cx="825.26195"
+     inkscape:cy="721.78003"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg13" />
+  <defs
+     id="defs2" />
+  <image
+     sodipodi:absref="C:\kd\xmas\data\clips\kbox\extra-boom-famdewinter.png"
+     xlink:href="../clips/kbox/extra-boom-famdewinter.png"
+     y="56.831665"
+     x="641.42371"
+     width="784.37488"
+     id="extra-boom-famdewinter"
+     height="1016.7823" />
+  <g
+     id="g852">
+    <image
+       sodipodi:absref="C:\kd\xmas\data\clips\kbox\asax2-dirk.png"
+       xlink:href="../clips/kbox/asax2-dirk.png"
+       y="504.10046"
+       x="1718.6733"
+       width="285.34201"
+       id="asax2-dirk"
+       height="559.00519" />
+    <image
+       sodipodi:absref="C:\kd\xmas\data\clips\kbox\bsax-astrid.png"
+       xlink:href="../clips/kbox/bsax-astrid.png"
+       y="-16.621838"
+       x="1735.4387"
+       width="300.2608"
+       id="bsax-astrid"
+       height="531.23059" />
+    <image
+       sodipodi:absref="C:\kd\xmas\data\clips\kbox\tsax-astrid.png"
+       xlink:href="../clips/kbox/tsax-astrid.png"
+       y="1.5264684"
+       x="1425.7986"
+       width="317.3815"
+       id="tsax-astrid"
+       height="502.57401" />
+    <image
+       sodipodi:absref="C:\kd\xmas\data\clips\kbox\tsax-koend.png"
+       xlink:href="../clips/kbox/tsax-koend.png"
+       y="504.10046"
+       x="1425.7986"
+       width="292.87469"
+       id="tsax-koend"
+       height="544.62769" />
+  </g>
+  <g
+     id="g846">
+    <image
+       sodipodi:absref="C:\kd\xmas\data\clips\kbox\asax1-astrid.png"
+       xlink:href="../clips/kbox/asax1-astrid.png"
+       y="1.5264684"
+       x="337.95221"
+       width="303.4715"
+       id="asax1-astrid"
+       height="525.61011" />
+    <image
+       sodipodi:absref="C:\kd\xmas\data\clips\kbox\asax1-jonathan.png"
+       xlink:href="../clips/kbox/asax1-jonathan.png"
+       style="stroke-width:0.943671"
+       y="527.13654"
+       x="313.65405"
+       width="327.76965"
+       id="asax1-jonathan"
+       height="546.47742" />
+    <image
+       sodipodi:absref="C:\kd\xmas\data\clips\kbox\asax1-regine.png"
+       xlink:href="../clips/kbox/asax1-regine.png"
+       y="527.13654"
+       x="14.115955"
+       width="299.53809"
+       id="asax1-regine"
+       height="532.51221" />
+    <image
+       sodipodi:absref="C:\kd\xmas\data\clips\kbox\tsax-steven.png"
+       xlink:href="../clips/kbox/tsax-steven.png"
+       y="52.240669"
+       x="-22.225231"
+       width="335.8793"
+       id="tsax-steven"
+       height="474.8959" />
+  </g>
+</svg>

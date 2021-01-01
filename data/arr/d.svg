@@ -1,2 +1,113 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<svg baseProfile="tiny" height="100%" version="1.2" viewBox="0 0 1920 1080" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xlink="http://www.w3.org/1999/xlink"><defs /><image height="525.6101" id="asax1-astrid" width="303.4715" x="0" xlink:href="../clips/kbox/asax1-astrid.png" y="0" /><image height="335.6595" id="asax1-jonathan" width="475.2068" x="0" xlink:href="../clips/kbox/asax1-jonathan.png" y="0" /><image height="532.5122" id="asax1-regine" width="299.5381" x="0" xlink:href="../clips/kbox/asax1-regine.png" y="0" /><image height="559.0052" id="asax2-dirk" width="285.342" x="0" xlink:href="../clips/kbox/asax2-dirk.png" y="0" /><image height="518.6446" id="bsax-astrid" width="307.5472" x="0" xlink:href="../clips/kbox/bsax-astrid.png" y="0" /><image height="299.5381" id="mall-tineke2" width="532.5122" x="0" xlink:href="../clips/kbox/mall-tineke2.png" y="0" /><image height="299.5381" id="perc1-koend" width="532.5122" x="0" xlink:href="../clips/kbox/perc1-koend.png" y="0" /><image height="299.5381" id="perc2-koend-kids1" width="532.5122" x="0" xlink:href="../clips/kbox/perc2-koend-kids1.png" y="0" /><image height="299.5381" id="perc2-vj1" width="532.5122" x="0" xlink:href="../clips/kbox/perc2-vj1.png" y="0" /><image height="314.3793" id="timp-koend" width="507.3733" x="0" xlink:href="../clips/kbox/timp-koend.png" y="0" /><image height="502.574" id="tsax-astrid" width="317.3815" x="0" xlink:href="../clips/kbox/tsax-astrid.png" y="0" /><image height="544.6277" id="tsax-koend" width="292.8747" x="0" xlink:href="../clips/kbox/tsax-koend.png" y="0" /><image height="474.8959" id="tsax-steven" width="335.8793" x="0" xlink:href="../clips/kbox/tsax-steven.png" y="0" /></svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   height="100%"
+   version="1.2"
+   viewBox="0 0 1920 1080"
+   width="100%"
+   id="svg11"
+   sodipodi:docname="d.svg"
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)">
+  <metadata
+     id="metadata15">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     id="namedview13"
+     showgrid="false"
+     inkscape:zoom="0.38375274"
+     inkscape:cx="876.46346"
+     inkscape:cy="646.4943"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg11" />
+  <defs
+     id="defs2" />
+  <g
+     id="g844">
+    <image
+       sodipodi:absref="C:\kd\xmas\data\clips\kbox\extra-dans-florentine-rosalie.png"
+       xlink:href="../clips/kbox/extra-dans-florentine-rosalie.png"
+       y="521.45868"
+       x="702.03455"
+       width="598.51239"
+       id="extra-dans-florentine-rosalie"
+       height="494.94141" />
+    <image
+       sodipodi:absref="C:\kd\xmas\data\clips\kbox\extra-xylo-florentine.png"
+       xlink:href="../clips/kbox/extra-xylo-florentine.png"
+       y="-18.426155"
+       x="1370.9171"
+       width="570.4541"
+       id="extra-xylo-florentine"
+       height="519.28552" />
+    <image
+       sodipodi:absref="C:\kd\xmas\data\clips\kbox\extra-xylo-rosalie.png"
+       xlink:href="../clips/kbox/extra-xylo-rosalie.png"
+       y="521.45868"
+       x="1376.4449"
+       width="563.82373"
+       id="extra-xylo-rosalie"
+       height="525.39221" />
+    <image
+       sodipodi:absref="C:\kd\xmas\data\clips\kbox\mall-tineke2.png"
+       xlink:href="../clips/kbox/mall-tineke2.png"
+       y="75.547028"
+       x="690.979"
+       width="725.69177"
+       id="mall-tineke2"
+       height="408.2016" />
+  </g>
+  <g
+     id="g849">
+    <image
+       sodipodi:absref="C:\kd\xmas\data\clips\kbox\perc1-koend.png"
+       xlink:href="../clips/kbox/perc1-koend.png"
+       y="-140.03838"
+       x="5.5278711"
+       width="725.69177"
+       id="perc1-koend"
+       height="408.2016" />
+    <image
+       sodipodi:absref="C:\kd\xmas\data\clips\kbox\perc2-koend-kids1.png"
+       xlink:href="../clips/kbox/perc2-koend-kids1.png"
+       y="247.76772"
+       x="3.685281"
+       width="725.69177"
+       id="perc2-koend-kids1"
+       height="408.2016" />
+    <image
+       sodipodi:absref="C:\kd\xmas\data\clips\kbox\timp-koend.png"
+       xlink:href="../clips/kbox/timp-koend.png"
+       y="655.9693"
+       x="3.685281"
+       width="691.43329"
+       id="timp-koend"
+       height="428.42679" />
+  </g>
+</svg>

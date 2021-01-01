@@ -1,2 +1,174 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<svg baseProfile="tiny" height="100%" version="1.2" viewBox="0 0 1920 1080" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xlink="http://www.w3.org/1999/xlink"><defs /><image height="897.9978" id="extra-boom-famdewinter" width="692.7411" x="0" xlink:href="../clips/kbox/extra-boom-famdewinter.png" y="0" /><image height="596.5576" id="fl-astrid" width="347.5942" x="0" xlink:href="../clips/kbox/fl-astrid.png" y="0" /><image height="439.436" id="fl-fiendw" width="471.8776" x="0" xlink:href="../clips/kbox/fl-fiendw.png" y="0" /><image height="341.526" id="fl-karolien" width="607.1573" x="0" xlink:href="../clips/kbox/fl-karolien.png" y="0" /><image height="371.8064" id="fl-marlies" width="557.7096" x="0" xlink:href="../clips/kbox/fl-marlies.png" y="0" /><image height="600.9266" id="fl-thomas" width="345.0671" x="0" xlink:href="../clips/kbox/fl-thomas.png" y="0" /><image height="385.6221" id="fl-valerie-video" width="537.7286" x="0" xlink:href="../clips/kbox/fl-valerie-video.png" y="0" /><image height="516.0655" id="ob-janne" width="401.8095" x="0" xlink:href="../clips/kbox/ob-janne.png" y="0" /></svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   height="100%"
+   version="1.2"
+   viewBox="0 0 1920 1080"
+   width="100%"
+   id="svg17"
+   sodipodi:docname="a.svg"
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)">
+  <metadata
+     id="metadata21">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     id="namedview19"
+     showgrid="false"
+     inkscape:zoom="0.27135417"
+     inkscape:cx="1242.0649"
+     inkscape:cy="67.614469"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg17" />
+  <defs
+     id="defs2" />
+  <g
+     id="g869">
+    <image
+       sodipodi:absref="C:\kd\xmas\data\clips\kbox\cl3-sanderijn-video.png"
+       xlink:href="../clips/kbox/cl3-sanderijn-video.png"
+       y="-21.771364"
+       x="876.48822"
+       width="437.74921"
+       id="cl3-sanderijn-video"
+       height="364.3815" />
+    <image
+       sodipodi:absref="C:\kd\xmas\data\clips\kbox\fl-marlies.png"
+       xlink:href="../clips/kbox/fl-marlies.png"
+       y="725.04578"
+       x="833.92432"
+       width="489.14371"
+       id="fl-marlies"
+       height="326.09579" />
+    <image
+       sodipodi:absref="C:\kd\xmas\data\clips\kbox\fl-valerie-video.png"
+       xlink:href="../clips/kbox/fl-valerie-video.png"
+       y="386.83289"
+       x="851.44891"
+       width="471.61911"
+       id="fl-valerie-video"
+       height="338.21289" />
+  </g>
+  <g
+     id="g949">
+    <g
+       id="g909">
+      <image
+         sodipodi:absref="C:\kd\xmas\data\clips\kbox\fl-thomas.png"
+         xlink:href="../clips/kbox/fl-thomas.png"
+         y="543.05621"
+         x="514.54456"
+         width="302.64389"
+         id="fl-thomas"
+         height="527.04749" />
+      <g
+         id="g879">
+        <image
+           sodipodi:absref="C:\kd\xmas\data\clips\kbox\fl-fiendw.png"
+           xlink:href="../clips/kbox/fl-fiendw.png"
+           y="454.83847"
+           x="80.867966"
+           width="413.86401"
+           id="fl-fiendw"
+           height="385.41089" />
+        <image
+           sodipodi:absref="C:\kd\xmas\data\clips\kbox\fl-karolien.png"
+           xlink:href="../clips/kbox/fl-karolien.png"
+           style="stroke-width:1.01841"
+           y="804.33423"
+           x="13.053509"
+           width="471.61911"
+           id="fl-karolien"
+           height="326.09579" />
+      </g>
+    </g>
+    <g
+       id="g938">
+      <image
+         sodipodi:absref="C:\kd\xmas\data\clips\kbox\cl1-heleenba.png"
+         xlink:href="../clips/kbox/cl1-heleenba.png"
+         y="-21.771364"
+         x="224.07417"
+         width="305.81439"
+         id="cl1-heleenba"
+         height="521.58337" />
+      <image
+         sodipodi:absref="C:\kd\xmas\data\clips\kbox\fl-astrid.png"
+         xlink:href="../clips/kbox/fl-astrid.png"
+         y="-21.771364"
+         x="-80.786133"
+         width="304.86029"
+         id="fl-astrid"
+         height="523.2157" />
+      <image
+         sodipodi:absref="C:\kd\xmas\data\clips\kbox\cl3-carolien.png"
+         xlink:href="../clips/kbox/cl3-carolien.png"
+         y="-21.771364"
+         x="529.88855"
+         width="346.59961"
+         id="cl3-carolien"
+         height="460.20731" />
+    </g>
+  </g>
+  <g
+     id="g875">
+    <image
+       sodipodi:absref="C:\kd\xmas\data\clips\kbox\cl1-roland.png"
+       xlink:href="../clips/kbox/cl1-roland.png"
+       y="26.160149"
+       x="1593.0004"
+       width="304.24921"
+       id="cl1-roland"
+       height="524.26648" />
+    <image
+       sodipodi:absref="C:\kd\xmas\data\clips\kbox\cl2-fienc.png"
+       xlink:href="../clips/kbox/cl2-fienc.png"
+       y="-21.771364"
+       x="1314.2374"
+       width="278.76309"
+       id="cl2-fienc"
+       height="572.198" />
+    <image
+       sodipodi:absref="C:\kd\xmas\data\clips\kbox\cl-geert.png"
+       xlink:href="../clips/kbox/cl-geert.png"
+       y="550.42664"
+       x="1616.8812"
+       width="299.53809"
+       id="cl-geert"
+       height="532.51221" />
+    <image
+       sodipodi:absref="C:\kd\xmas\data\clips\kbox\ob-janne.png"
+       xlink:href="../clips/kbox/ob-janne.png"
+       y="598.52216"
+       x="1323.068"
+       width="352.41019"
+       id="ob-janne"
+       height="452.61938" />
+  </g>
+</svg>
