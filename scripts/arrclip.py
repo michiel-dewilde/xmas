@@ -80,17 +80,26 @@ def make_arrclip(akey, whichbox):
 
     clips = []
     for tile in part.tiling.tiles:
-        clip = get_tileclip(tile, tile.id, whichbox)
-        minput = minputs[tile.id]
+        id = tile.id
+        clip = get_tileclip(tile, id, whichbox)
+        minput = minputs[id]
         delay = minput.delay
         if delay < 0:
             clip = clip.subclip(-delay)
         else:
             clip = clip.with_start(delay)
         clips.append(clip)
-        #if akey == '11':
-        #    if 'perc2' in tile.id:
-        #        clips.append(get_tileclip(tile, 'perc2-vj2', whichbox))          
+        if akey == '11':
+            if 'perc2' in tile.id:
+                id = 'perc2-vj2'
+                clip = get_tileclip(tile, id, whichbox)
+                minput = minputs[id]
+                delay = minput.delay
+                if delay < 0:
+                    clip = clip.subclip(-delay)
+                else:
+                    clip = clip.with_start(delay)
+                clips.append(clip)
 
     comp = moviepy.editor.CompositeVideoClip(clips=clips, size=size)
     return moviepy.video.VideoClip.VideoClip(make_frame=Clip_with_lights(comp, part))
