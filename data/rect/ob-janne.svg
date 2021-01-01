@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   height="100%"
+   version="1.2"
+   viewBox="0 0 1440 1440"
+   width="100%"
+   id="svg10"
+   sodipodi:docname="ob-janne.svg"
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)">
+  <metadata
+     id="metadata14">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="3840"
+     inkscape:window-height="1537"
+     id="namedview12"
+     showgrid="false"
+     inkscape:zoom="0.59027778"
+     inkscape:cx="720"
+     inkscape:cy="720"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg10" />
+  <defs
+     id="defs2" />
+  <image
+     sodipodi:absref="C:\kd\xmas\data\avg\ob-janne.png"
+     xlink:href="../avg/ob-janne.png"
+     id="image4"
+     y="0"
+     x="0"
+     width="1440"
+     height="1440" />
+  <rect
+     fill="none"
+     height="1440"
+     id="cbox"
+     stroke="rgb(0%,0%,100%)"
+     stroke-width="8"
+     width="1440"
+     x="0"
+     y="0" />
+  <rect
+     fill="none"
+     height="943.62354"
+     id="kbox"
+     stroke="#00ff00"
+     stroke-width="7.99998"
+     width="735.24701"
+     x="237.17647"
+     y="496.37646" />
+  <rect
+     fill="none"
+     height="731.85883"
+     id="mbox"
+     stroke="#ffff00"
+     stroke-width="8.00002"
+     width="735.24701"
+     x="237.17647"
+     y="496.37646" />
+  <rect
+     fill="none"
+     height="259.20001"
+     id="hbox"
+     stroke="#ff0000"
+     stroke-width="7.99998"
+     width="255.81177"
+     x="320.18823"
+     y="496.37646" />
+</svg>

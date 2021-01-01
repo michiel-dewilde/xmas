@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   height="100%"
+   version="1.2"
+   viewBox="0 0 1080 1920"
+   width="100%"
+   id="svg10"
+   sodipodi:docname="tsax-koend.svg"
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)">
+  <metadata
+     id="metadata14">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="3840"
+     inkscape:window-height="1537"
+     id="namedview12"
+     showgrid="false"
+     inkscape:zoom="0.44270833"
+     inkscape:cx="540"
+     inkscape:cy="960"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg10" />
+  <defs
+     id="defs2" />
+  <image
+     sodipodi:absref="C:\kd\xmas\data\avg\tsax-koend.png"
+     xlink:href="../avg/tsax-koend.png"
+     id="image4"
+     y="0"
+     x="0"
+     width="1080"
+     height="1920" />
+  <rect
+     fill="none"
+     height="1920"
+     id="cbox"
+     stroke="rgb(0%,0%,100%)"
+     stroke-width="10"
+     width="1080"
+     x="0"
+     y="0" />
+  <rect
+     fill="none"
+     height="1734.7764"
+     id="kbox"
+     stroke="#00ff00"
+     stroke-width="9.99995"
+     width="933.17651"
+     x="0"
+     y="185.22353" />
+  <rect
+     fill="none"
+     height="1734.7765"
+     id="mbox"
+     stroke="#ffff00"
+     stroke-width="10"
+     width="933.17651"
+     x="2.4586946e-06"
+     y="185.22353" />
+  <rect
+     fill="none"
+     height="472.09409"
+     id="hbox"
+     stroke="#ff0000"
+     stroke-width="9.99997"
+     width="472.37646"
+     x="72.282356"
+     y="185.22353" />
+</svg>
