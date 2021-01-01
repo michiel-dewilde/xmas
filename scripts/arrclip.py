@@ -21,6 +21,7 @@ from .sheets import minputs
 from .slinger import Slinger
 from .rects import keyRects, Rect
 from .tempo import m2t, t2m
+from .fastcomposite import FastCompositeVideoClip
 
 class Clip_with_lights:
     def __init__(self, srcvideo, part):
@@ -98,12 +99,16 @@ def make_arrclip(akey, whichbox):
         endstart = 169
         for tile in part.tiling.tiles:
             maskvideo = moviepy.video.VideoClip.ImageClip(np.array(tile.mask)/255, is_mask=True)
-            clips.append(moviepy.video.VideoClip.VideoClip(make_frame=Rotating_color_tile(tile.mask.size, periodiccolors)).with_mask(maskvideo).with_position(tile.maskpos).with_start(endstart))
+            clip = moviepy.video.VideoClip.VideoClip(make_frame=Rotating_color_tile(tile.mask.size, periodiccolors)).with_mask(maskvideo).with_position(tile.maskpos).with_start(endstart)
+            setattr(clip,'isfixedmask',True)
+            clips.append(clip)
         endtext = Image.open(os.path.join('media', 'end.png'))
         if (list(size) != list(endtext.size)):
             endtext = endtext.resize(size)
         endtextvideo = moviepy.video.VideoClip.ImageClip(np.array(endtext))
-        clips.append(endtextvideo.with_start(endstart))
+        clip = endtextvideo.with_start(endstart)
+        setattr(clip,'isfixedmask',True)
+        clips.append(clip)
 
     for tile in part.tiling.tiles:
         id = tile.id
@@ -127,6 +132,7 @@ def make_arrclip(akey, whichbox):
                 timpstart = m2t(9) #13
                 timpend = m2t(20)
                 clip = clip.subclip(timpstart-delay, timpend-delay).with_start(timpstart)
+                setattr(clip,'isfixedmask',True)
                 clips.append(clip)
             if 'perc2' in tile.id:
                 id = 'perc2-vj1-ontop'
@@ -136,15 +142,25 @@ def make_arrclip(akey, whichbox):
                 vjstart = m2t(18.5)
                 vjend = m2t(25)
                 clip = clip.subclip(vjstart-delay, vjend-delay).with_start(vjstart)
+                setattr(clip,'isfixedmask',True)
                 clips.append(clip)
             if 'henk' in tile.id:
                 id = 'tuba-henk2'
                 clip = get_tileclip(tile, id, whichbox)
                 minput = minputs[id]
                 delay = minput.delay
-                hstart = m2t(33)
+                hstart = m2t(37)
                 clip = clip.subclip(hstart-delay).with_start(hstart)
+                setattr(clip,'isfixedmask',True)
+                clips.append(clip)
+            if 'geert' in tile.id:
+                id = 'cl-geert-eind'
+                clip = get_tileclip(tile, id, whichbox)
+                minput = minputs[id]
+                delay = minput.delay
+                clip = clip.with_start(delay)
+                setattr(clip,'isfixedmask',True)
                 clips.append(clip)
 
-    comp = moviepy.editor.CompositeVideoClip(clips=clips, size=size)
+    comp = FastCompositeVideoClip(clips=clips, size=size)
     return moviepy.video.VideoClip.VideoClip(make_frame=Clip_with_lights(comp, part))

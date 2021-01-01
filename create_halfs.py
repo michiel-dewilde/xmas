@@ -4,6 +4,8 @@ from scripts.lightchoreo import framerate
 from scripts.tempo import m2t, t2m
 from scripts.arrdata import arrdatas
 
+os.makedirs('half', exist_ok=True)
+
 for arrdata in arrdatas.values():
     print(f"arr {arrdata.id}")
     destfile = os.path.join('half', f'{arrdata.id}.mp4')

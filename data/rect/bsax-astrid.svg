@@ -52,11 +52,11 @@
   <image
      sodipodi:absref="C:\kd\xmas\data\avg\bsax-astrid.png"
      xlink:href="../avg/bsax-astrid.png"
-     height="1920"
-     width="1080"
-     x="0"
+     id="image4"
      y="0"
-     id="image4" />
+     x="0"
+     width="1080"
+     height="1920" />
   <rect
      fill="none"
      height="1920"
@@ -68,13 +68,13 @@
      y="0" />
   <rect
      fill="none"
-     height="1425.3177"
+     height="1495.3413"
      id="kbox"
      stroke="#00ff00"
      stroke-width="10"
      width="845.08234"
      x="128.7529"
-     y="429.17645" />
+     y="359.15292" />
   <rect
      fill="none"
      height="1011.953"

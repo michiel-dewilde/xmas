@@ -335,7 +335,7 @@ add_array_change(3, 95, np.broadcast_to(darkgreen[np.newaxis,:], (maxlights//4, 
 add_all_const(95+3/4, 95+3.25/4, brightyellow)
 add_all_const(95+3.5/4, 96, brightyellow)
 
-yeloframe = math.ceil(framerate*m2t(96))
+yeloframe = math.ceil(framerate*(m2t(96) + 5))
 endperiod = 1
 endperiodframes = endperiod * framerate
 sine = np.tile(np.sin(np.linspace(0, 2*np.pi, endperiodframes+1))[:-1], math.ceil((maxframe-yeloframe+endperiodframes)/framerate))
