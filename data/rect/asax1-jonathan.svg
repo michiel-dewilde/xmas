@@ -52,11 +52,11 @@
   <image
      sodipodi:absref="C:\kd\xmas\data\avg\asax1-jonathan.png"
      xlink:href="../avg/asax1-jonathan.png"
-     height="1080"
-     width="1920"
-     x="0"
+     id="image4"
      y="0"
-     id="image4" />
+     x="0"
+     width="1920"
+     height="1080" />
   <rect
      fill="none"
      height="1080"
@@ -82,7 +82,7 @@
      stroke="#ffff00"
      stroke-width="9.99991"
      width="468.02313"
-     x="495.66217"
+     x="543.66217"
      y="86.602684" />
   <rect
      fill="none"

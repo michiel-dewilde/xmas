@@ -15,7 +15,7 @@ from .arrparse import get_arr_layout
 from .common import *
 from .cropsize import Cropdata
 from .howbig import Howbig
-from .lightchoreo import choreo, framerate, maxtime
+from .lightchoreo import choreo, framerate, maxtime, maxframe
 from .partitioning import Partitioning
 from .sheets import minputs
 from .slinger import Slinger
@@ -28,7 +28,7 @@ class Clip_with_lights:
         self.part = part
     def __call__(self, t):
         workimg = self.srcvideo.get_frame(t)
-        choreoframe = round(framerate * t)
+        choreoframe = min(round(framerate * t), maxframe-1)
         for fe in self.part.tiling.fes:
             if fe.slinger is None:
                 continue
@@ -90,15 +90,24 @@ def make_arrclip(akey, whichbox):
             clip = clip.with_start(delay)
         clips.append(clip)
         if akey == '11':
-            if 'perc2' in tile.id:
-                id = 'perc2-vj2'
+            if 'perc1' in tile.id:
+                id = 'timp-koend'
                 clip = get_tileclip(tile, id, whichbox)
                 minput = minputs[id]
                 delay = minput.delay
-                if delay < 0:
-                    clip = clip.subclip(-delay)
-                else:
-                    clip = clip.with_start(delay)
+                timpstart = m2t(16)
+                timpend = m2t(20)
+                timpcf = m2t(16.5)-m2t(16)
+                clip = clip.subclip(timpstart-delay, timpend-delay).crossfadein(timpcf).crossfadeout(timpcf).with_start(timpstart)
+                clips.append(clip)
+            if 'perc2' in tile.id:
+                id = 'perc2-vj1'
+                clip = get_tileclip(tile, id, whichbox)
+                minput = minputs[id]
+                delay = minput.delay
+                vjstart = m2t(18)
+                vjend = m2t(25)
+                clip = clip.subclip(vjstart-delay, vjend-delay).crossfadein(m2t(18.5)-m2t(18)).with_start(vjstart)
                 clips.append(clip)
 
     comp = moviepy.editor.CompositeVideoClip(clips=clips, size=size)

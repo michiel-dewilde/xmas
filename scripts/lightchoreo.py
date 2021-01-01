@@ -20,6 +20,9 @@ brightyellow = np.array((1,1,0.75))
 white = np.array((1,1,1))
 darkblue = np.array((0,0,0.5))
 
+darkred = red / 2
+darkgreen = green / 2
+
 hsv2rgb = np.vectorize(lambda col: np.array(colorsys.hsv_to_rgb(col[0], col[1], col[2])), signature='(3)->(3)')
 rgb2hsv = np.vectorize(lambda col: np.array(colorsys.rgb_to_hsv(col[0], col[1], col[2])), signature='(3)->(3)')
 
@@ -304,18 +307,28 @@ for m in range(79,94):
 # 94 1
 #     You!
 
-add_all_array_const(94+2/8, 94+5/12, red)
-add_all_array_const(94+5/12, 94+4/8, green)
-add_all_array_const(94+6/8, 94+11/12, red)
-add_all_array_const(94+11/12, 94+8/8, green)
+add_const(0, 94+3/12, 94+7/12, red)
+add_const(1, 94+3/12, 94+7/12, red)
+add_const(2, 94+5/12, 94+9/12, green)
+add_const(3, 94+5/12, 94+9/12, green)
+add_const(0, 94+9/12, 94+12/12, red)
+add_const(1, 94+9/12, 94+12/12, red)
+add_const(2, 94+11/12, 95, green)
+add_const(3, 94+11/12, 95, green)
 
-add_all_array_change(95, np.zeros((maxlights, 3)), 95+3/4,  np.broadcast_to(green[np.newaxis,:], (maxlights, 3)))
-add_all_const(95+3/4, 95+10/12, brightyellow)
-add_all_const(95+11/12, 96, brightyellow)
+add_array_change(0, 95, np.broadcast_to(darkred[np.newaxis,:], (maxlights//4, 3)), 95+3/4,  np.broadcast_to(red[np.newaxis,:], (maxlights//4, 3)))
+add_array_change(1, 95, np.broadcast_to(darkred[np.newaxis,:], (maxlights//4, 3)), 95+3/4,  np.broadcast_to(red[np.newaxis,:], (maxlights//4, 3)))
+add_array_change(2, 95, np.broadcast_to(darkgreen[np.newaxis,:], (maxlights//4, 3)), 95+3/4,  np.broadcast_to(green[np.newaxis,:], (maxlights//4, 3)))
+add_array_change(3, 95, np.broadcast_to(darkgreen[np.newaxis,:], (maxlights//4, 3)), 95+3/4,  np.broadcast_to(green[np.newaxis,:], (maxlights//4, 3)))
+
+#add_all_const(95+3/4, 95+10/12, brightyellow)
+#add_all_const(95+11/12, 96, brightyellow)
+
+add_all_const(95+3/4, 95+3.25/4, brightyellow)
+add_all_const(95+3.5/4, 96, brightyellow)
 
 #kern = np.full(3, 1/3)
-#kern = gkern1d(2, 2)
-kern = np.kern([0.5, 0.5])
+kern = np.array([0.25, 0.5, 0.25])
 for light in range(maxlights):
     for rgb in range(3):
-        choreo[:, light, rgb] = scipy.signal.convolve(choreo[:, light, rgb], kern)[:maxframe]
+        choreo[:, light, rgb] = scipy.signal.convolve(choreo[1:maxframe, light, rgb], kern)[:maxframe]
