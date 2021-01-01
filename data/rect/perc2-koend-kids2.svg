@@ -52,11 +52,11 @@
   <image
      sodipodi:absref="C:\kd\xmas\data\avg\perc2-koend-kids2.png"
      xlink:href="../avg/perc2-koend-kids2.png"
-     height="1920"
-     width="1080"
-     x="0"
+     id="image4"
      y="0"
-     id="image4" />
+     x="0"
+     width="1080"
+     height="1920" />
   <rect
      fill="none"
      height="1920"
@@ -77,13 +77,13 @@
      y="560.18823" />
   <rect
      fill="none"
-     height="481.12949"
+     height="503.71771"
      id="mbox"
      stroke="#ffff00"
      stroke-width="9.99997"
-     width="415.90585"
-     x="70.023529"
-     y="795.1059" />
+     width="435.49432"
+     x="66.229309"
+     y="783.81177" />
   <rect
      fill="none"
      height="232.65887"

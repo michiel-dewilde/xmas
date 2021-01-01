@@ -35,8 +35,8 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="2335"
-     inkscape:window-height="1293"
+     inkscape:window-width="1904"
+     inkscape:window-height="1041"
      id="namedview12"
      showgrid="false"
      inkscape:zoom="0.54270833"
@@ -45,17 +45,18 @@
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="0"
-     inkscape:current-layer="svg10" />
+     inkscape:current-layer="svg10"
+     inkscape:document-rotation="0" />
   <defs
      id="defs2" />
   <image
      sodipodi:absref="C:\kd\xmas\data\avg\asax1-jonathan.png"
      xlink:href="../avg/asax1-jonathan.png"
-     id="image4"
-     y="0"
-     x="0"
+     height="1080"
      width="1920"
-     height="1080" />
+     x="0"
+     y="0"
+     id="image4" />
   <rect
      fill="none"
      height="1080"
@@ -79,9 +80,9 @@
      height="781.49713"
      id="mbox"
      stroke="#ffff00"
-     stroke-width="9.99995"
-     width="573.05194"
-     x="390.63339"
+     stroke-width="9.99991"
+     width="468.02313"
+     x="495.66217"
      y="86.602684" />
   <rect
      fill="none"

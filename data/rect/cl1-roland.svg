@@ -35,8 +35,8 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="3840"
-     inkscape:window-height="1537"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
      id="namedview12"
      showgrid="false"
      inkscape:zoom="0.44270833"
@@ -45,17 +45,18 @@
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg10" />
+     inkscape:current-layer="svg10"
+     inkscape:document-rotation="0" />
   <defs
      id="defs2" />
   <image
      sodipodi:absref="C:\kd\xmas\data\avg\cl1-roland.png"
      xlink:href="../avg/cl1-roland.png"
-     id="image4"
-     y="0"
-     x="0"
+     height="1920"
      width="1080"
-     height="1920" />
+     x="0"
+     y="0"
+     id="image4" />
   <rect
      fill="none"
      height="1920"
@@ -85,11 +86,11 @@
      y="460.79999" />
   <rect
      fill="none"
-     height="1136.1882"
+     height="786.07056"
      id="hbox"
      stroke="#ff0000"
      stroke-width="9.99998"
-     width="989.64709"
-     x="49.694118"
-     y="460.79999" />
+     width="526.58826"
+     x="275.57648"
+     y="810.91766" />
 </svg>

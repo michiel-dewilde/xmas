@@ -20,6 +20,7 @@ from .partitioning import Partitioning
 from .sheets import minputs
 from .slinger import Slinger
 from .rects import keyRects, Rect
+from .tempo import m2t, t2m
 
 class Clip_with_lights:
     def __init__(self, srcvideo, part):
@@ -44,18 +45,9 @@ class Clip_with_lights:
                 light.draw_bulb_l_np(workimg, light.hsvcolor)
         return workimg
 
-def make_arrclip(akey, whichbox):
-    weights = {}
-    size = (1920, 1080)
-    for mkey, minput in minputs.items():
-        weights[mkey] = minput.weight
-    layout = get_arr_layout(akey)
-    part = Partitioning(size=size, layout=layout, weights=weights)
-
-    clips = []
-    for tile in part.tiling.tiles:
-        minput = minputs[tile.id]
-        rects = keyRects[tile.id]
+def get_tileclip(tile, id, whichbox):
+        minput = minputs[id]
+        rects = keyRects[id]
         cropdata = Cropdata((rects.bbox.w, rects.bbox.h), getattr(rects, whichbox), rects.hbox, tile.mask.size, Rect(0, 0, tile.mask.size[0], tile.mask.size[1]))
 
         ffmpegsize = cropdata.size
@@ -74,15 +66,31 @@ def make_arrclip(akey, whichbox):
             clip = clip.fx(moviepy.video.fx.mirror_x)
 
         clip = clip.fx(moviepy.video.fx.crop, x1=cropdata.crop.x, y1=cropdata.crop.y, width=cropdata.crop.w, height=cropdata.crop.h)
+        
+        maskvideo = moviepy.video.VideoClip.ImageClip(np.array(tile.mask)/255, is_mask=True)
+        return clip.with_mask(maskvideo).with_position(tile.maskpos)
 
+def make_arrclip(akey, whichbox):
+    weights = {}
+    size = (1920, 1080)
+    for mkey, minput in minputs.items():
+        weights[mkey] = minput.weight
+    layout = get_arr_layout(akey)
+    part = Partitioning(size=size, layout=layout, weights=weights)
+
+    clips = []
+    for tile in part.tiling.tiles:
+        clip = get_tileclip(tile, tile.id, whichbox)
+        minput = minputs[tile.id]
         delay = minput.delay
         if delay < 0:
             clip = clip.subclip(-delay)
         else:
             clip = clip.with_start(delay)
-        
-        maskvideo = moviepy.video.VideoClip.ImageClip(np.array(tile.mask)/255, is_mask=True)
-        clips.append(clip.with_mask(maskvideo).with_position(tile.maskpos))
+        clips.append(clip)
+        #if akey == '11':
+        #    if 'perc2' in tile.id:
+        #        clips.append(get_tileclip(tile, 'perc2-vj2', whichbox))          
 
     comp = moviepy.editor.CompositeVideoClip(clips=clips, size=size)
     return moviepy.video.VideoClip.VideoClip(make_frame=Clip_with_lights(comp, part))

@@ -42,20 +42,21 @@
      inkscape:zoom="0.44270833"
      inkscape:cx="540"
      inkscape:cy="1175.6445"
-     inkscape:window-x="1266"
-     inkscape:window-y="303"
+     inkscape:window-x="186"
+     inkscape:window-y="0"
      inkscape:window-maximized="0"
-     inkscape:current-layer="svg10" />
+     inkscape:current-layer="svg10"
+     inkscape:document-rotation="0" />
   <defs
      id="defs2" />
   <image
      sodipodi:absref="C:\kd\xmas\data\avg\cl3-carolien.png"
      xlink:href="../avg/cl3-carolien.png"
-     id="image4"
-     y="0"
-     x="0"
+     height="1920"
      width="1080"
-     height="1920" />
+     x="0"
+     y="0"
+     id="image4" />
   <rect
      fill="none"
      height="1920"
@@ -76,20 +77,20 @@
      y="485.64706" />
   <rect
      fill="none"
-     height="941.92944"
+     height="919.34113"
      id="mbox"
      stroke="#ffff00"
-     stroke-width="10"
+     stroke-width="9.99999"
      width="716.32941"
      x="0"
-     y="978.07062" />
+     y="1000.6589" />
   <rect
      fill="none"
-     height="596.32947"
+     height="573.74121"
      id="hbox"
      stroke="#ff0000"
-     stroke-width="9.99998"
-     width="560.47058"
+     stroke-width="9.99996"
+     width="528.84705"
      x="155.85883"
-     y="978.07062" />
+     y="1000.6589" />
 </svg>
