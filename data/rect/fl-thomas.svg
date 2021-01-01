@@ -35,8 +35,8 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="3840"
-     inkscape:window-height="1537"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
      id="namedview12"
      showgrid="false"
      inkscape:zoom="1.328125"
@@ -45,7 +45,8 @@
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg10" />
+     inkscape:current-layer="svg10"
+     inkscape:document-rotation="0" />
   <defs
      id="defs2" />
   <image
@@ -76,16 +77,16 @@
      y="27.105883" />
   <rect
      fill="none"
-     height="454.77649"
+     height="322.25885"
      id="mbox"
      stroke="#ffff00"
      stroke-width="3.00001"
-     width="352"
-     x="-4.4222611e-06"
+     width="313.60001"
+     x="38.399998"
      y="105.41176" />
   <rect
      fill="none"
-     height="185.22356"
+     height="222.87062"
      id="hbox"
      stroke="#ff0000"
      stroke-width="3"

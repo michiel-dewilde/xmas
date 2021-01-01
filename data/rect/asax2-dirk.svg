@@ -36,26 +36,27 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:window-width="1892"
-     inkscape:window-height="1053"
+     inkscape:window-height="1041"
      id="namedview12"
      showgrid="false"
      inkscape:zoom="0.31304206"
      inkscape:cx="157.69719"
      inkscape:cy="1138.3369"
-     inkscape:window-x="1788"
-     inkscape:window-y="212"
+     inkscape:window-x="12"
+     inkscape:window-y="0"
      inkscape:window-maximized="0"
-     inkscape:current-layer="svg10" />
+     inkscape:current-layer="svg10"
+     inkscape:document-rotation="0" />
   <defs
      id="defs2" />
   <image
      sodipodi:absref="C:\kd\xmas\data\avg\asax2-dirk.png"
      xlink:href="../avg/asax2-dirk.png"
-     id="image4"
-     y="0"
-     x="0"
+     height="1920"
      width="1080"
-     height="1920" />
+     x="0"
+     y="0"
+     id="image4" />
   <rect
      fill="none"
      height="1920"
@@ -76,20 +77,20 @@
      y="149.08235" />
   <rect
      fill="none"
-     height="1039.0587"
+     height="971.97504"
      id="mbox"
      stroke="#ffff00"
-     stroke-width="10"
-     width="614.68231"
+     stroke-width="9.99997"
+     width="614.68237"
      x="176.18825"
-     y="149.08235" />
+     y="216.16599" />
   <rect
      fill="none"
-     height="535.34113"
+     height="468.25748"
      id="hbox"
      stroke="#ff0000"
-     stroke-width="10"
+     stroke-width="9.99996"
      width="424.94119"
      x="365.92941"
-     y="149.08235" />
+     y="216.16599" />
 </svg>

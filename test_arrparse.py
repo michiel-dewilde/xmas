@@ -20,6 +20,8 @@ for filename in os.listdir(os.path.join('data', 'arr')):
     key, ext = os.path.splitext(filename)
     if ext != '.svg':
         continue
+    if key != '11':
+        continue
     print(f'{key}:')
     layout = get_arr_layout(key)
 

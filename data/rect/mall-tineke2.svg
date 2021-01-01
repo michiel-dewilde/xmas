@@ -35,27 +35,28 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1963"
+     inkscape:window-width="1904"
      inkscape:window-height="935"
      id="namedview12"
      showgrid="false"
      inkscape:zoom="0.54270833"
      inkscape:cx="960"
      inkscape:cy="540"
-     inkscape:window-x="1166"
-     inkscape:window-y="405"
+     inkscape:window-x="0"
+     inkscape:window-y="66"
      inkscape:window-maximized="0"
-     inkscape:current-layer="svg10" />
+     inkscape:current-layer="svg10"
+     inkscape:document-rotation="0" />
   <defs
      id="defs2" />
   <image
      sodipodi:absref="C:\kd\xmas\data\avg\mall-tineke2.png"
      xlink:href="../avg/mall-tineke2.png"
-     id="image4"
-     y="0"
-     x="0"
+     height="1080"
      width="1920"
-     height="1080" />
+     x="0"
+     y="0"
+     id="image4" />
   <rect
      fill="none"
      height="1080"
@@ -78,10 +79,10 @@
      fill="none"
      height="1080"
      id="mbox"
-     stroke="rgb(100%,100%,0%)"
+     stroke="#ffff00"
      stroke-width="10"
-     width="1920"
-     x="0"
+     width="1400.3839"
+     x="519.61615"
      y="0" />
   <rect
      fill="none"

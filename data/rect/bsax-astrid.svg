@@ -35,27 +35,28 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="3840"
-     inkscape:window-height="1537"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
      id="namedview12"
      showgrid="false"
      inkscape:zoom="0.44270833"
-     inkscape:cx="540"
-     inkscape:cy="960"
+     inkscape:cx="937.55294"
+     inkscape:cy="934.02353"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg10" />
+     inkscape:current-layer="svg10"
+     inkscape:document-rotation="0" />
   <defs
      id="defs2" />
   <image
      sodipodi:absref="C:\kd\xmas\data\avg\bsax-astrid.png"
      xlink:href="../avg/bsax-astrid.png"
-     id="image4"
-     y="0"
-     x="0"
+     height="1920"
      width="1080"
-     height="1920" />
+     x="0"
+     y="0"
+     id="image4" />
   <rect
      fill="none"
      height="1920"
@@ -67,29 +68,29 @@
      y="0" />
   <rect
      fill="none"
-     height="1481.7883"
+     height="1425.3177"
      id="kbox"
      stroke="#00ff00"
-     stroke-width="9.99999"
-     width="854.11761"
-     x="119.71767"
-     y="372.70587" />
+     stroke-width="10"
+     width="845.08234"
+     x="128.7529"
+     y="429.17645" />
   <rect
      fill="none"
-     height="1068.4236"
+     height="1011.953"
      id="mbox"
      stroke="#ffff00"
-     stroke-width="10"
-     width="508.51761"
-     x="465.31766"
-     y="372.70584" />
+     stroke-width="9.99999"
+     width="508.51758"
+     x="465.31763"
+     y="429.17645" />
   <rect
      fill="none"
-     height="354.63525"
+     height="298.16467"
      id="hbox"
      stroke="#ff0000"
-     stroke-width="9.99996"
+     stroke-width="9.99997"
      width="293.92941"
      x="582.77649"
-     y="372.70587" />
+     y="429.17645" />
 </svg>

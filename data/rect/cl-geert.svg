@@ -36,26 +36,27 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:window-width="1902"
-     inkscape:window-height="1086"
+     inkscape:window-height="1041"
      id="namedview12"
      showgrid="false"
      inkscape:zoom="0.6640625"
      inkscape:cx="360"
      inkscape:cy="640"
-     inkscape:window-x="1217"
-     inkscape:window-y="248"
+     inkscape:window-x="2"
+     inkscape:window-y="0"
      inkscape:window-maximized="0"
-     inkscape:current-layer="svg10" />
+     inkscape:current-layer="svg10"
+     inkscape:document-rotation="0" />
   <defs
      id="defs2" />
   <image
      sodipodi:absref="C:\kd\xmas\data\avg\cl-geert.png"
      xlink:href="../avg/cl-geert.png"
-     id="image4"
-     y="0"
-     x="0"
+     height="1280"
      width="720"
-     height="1280" />
+     x="0"
+     y="0"
+     id="image4" />
   <rect
      fill="none"
      height="1280"
@@ -76,12 +77,12 @@
      y="0" />
   <rect
      fill="none"
-     height="1227.2941"
+     height="739.38818"
      id="mbox"
      stroke="#ffff00"
      stroke-width="7"
-     width="641.69409"
-     x="78.305862"
+     width="482.07056"
+     x="121.97645"
      y="52.705883" />
   <rect
      fill="none"

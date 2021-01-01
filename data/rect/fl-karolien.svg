@@ -35,27 +35,28 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="2022"
+     inkscape:window-width="1904"
      inkscape:window-height="997"
      id="namedview12"
      showgrid="false"
      inkscape:zoom="0.8140625"
      inkscape:cx="640"
      inkscape:cy="360"
-     inkscape:window-x="1076"
-     inkscape:window-y="200"
+     inkscape:window-x="0"
+     inkscape:window-y="4"
      inkscape:window-maximized="0"
-     inkscape:current-layer="svg10" />
+     inkscape:current-layer="svg10"
+     inkscape:document-rotation="0" />
   <defs
      id="defs2" />
   <image
      sodipodi:absref="C:\kd\xmas\data\avg\fl-karolien.png"
      xlink:href="../avg/fl-karolien.png"
-     id="image4"
-     y="0"
-     x="0"
+     height="720"
      width="1280"
-     height="720" />
+     x="0"
+     y="0"
+     id="image4" />
   <rect
      fill="none"
      height="720"
@@ -80,7 +81,7 @@
      id="mbox"
      stroke="#ffff00"
      stroke-width="6.99999"
-     width="1280"
+     width="1079.7697"
      x="0"
      y="206.37236" />
   <rect

@@ -35,8 +35,8 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="3840"
-     inkscape:window-height="1537"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
      id="namedview12"
      showgrid="false"
      inkscape:zoom="0.8140625"
@@ -45,17 +45,18 @@
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg10" />
+     inkscape:current-layer="svg10"
+     inkscape:document-rotation="0" />
   <defs
      id="defs2" />
   <image
      sodipodi:absref="C:\kd\xmas\data\avg\horn-nathalie.png"
      xlink:href="../avg/horn-nathalie.png"
-     id="image4"
-     y="0"
-     x="0"
+     height="720"
      width="1280"
-     height="720" />
+     x="0"
+     y="0"
+     id="image4" />
   <rect
      fill="none"
      height="720"
@@ -85,11 +86,11 @@
      y="121.61228" />
   <rect
      fill="none"
-     height="299.88483"
+     height="253.20537"
      id="hbox"
      stroke="#ff0000"
      stroke-width="6.99998"
      width="276.14816"
      x="186.96126"
-     y="121.61228" />
+     y="168.29175" />
 </svg>

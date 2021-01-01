@@ -36,26 +36,27 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:window-width="1834"
-     inkscape:window-height="1082"
+     inkscape:window-height="1041"
      id="namedview12"
      showgrid="false"
      inkscape:zoom="0.6640625"
      inkscape:cx="360"
      inkscape:cy="634.00558"
-     inkscape:window-x="1384"
-     inkscape:window-y="220"
+     inkscape:window-x="70"
+     inkscape:window-y="0"
      inkscape:window-maximized="0"
-     inkscape:current-layer="svg10" />
+     inkscape:current-layer="svg10"
+     inkscape:document-rotation="0" />
   <defs
      id="defs2" />
   <image
      sodipodi:absref="C:\kd\xmas\data\avg\asax1-regine.png"
      xlink:href="../avg/asax1-regine.png"
-     id="image4"
-     y="0"
-     x="0"
+     height="1280"
      width="720"
-     height="1280" />
+     x="0"
+     y="0"
+     id="image4" />
   <rect
      fill="none"
      height="1280"
@@ -85,7 +86,7 @@
      y="87.521553" />
   <rect
      fill="none"
-     height="422.9725"
+     height="563.01953"
      id="hbox"
      stroke="#ff0000"
      stroke-width="7.00002"

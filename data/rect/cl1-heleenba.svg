@@ -35,27 +35,28 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="2406"
-     inkscape:window-height="1287"
+     inkscape:window-width="1904"
+     inkscape:window-height="1041"
      id="namedview12"
      showgrid="false"
      inkscape:zoom="0.38219424"
      inkscape:cx="540"
      inkscape:cy="1112"
-     inkscape:window-x="899"
-     inkscape:window-y="105"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
      inkscape:window-maximized="0"
-     inkscape:current-layer="svg10" />
+     inkscape:current-layer="svg10"
+     inkscape:document-rotation="0" />
   <defs
      id="defs2" />
   <image
      sodipodi:absref="C:\kd\xmas\data\avg\cl1-heleenba.png"
      xlink:href="../avg/cl1-heleenba.png"
-     id="image4"
-     y="0"
-     x="0"
+     height="2224"
      width="1080"
-     height="2224" />
+     x="0"
+     y="0"
+     id="image4" />
   <rect
      fill="none"
      height="2224"
@@ -76,7 +77,7 @@
      y="382.00473" />
   <rect
      fill="none"
-     height="1441.6753"
+     height="1114.6165"
      id="mbox"
      stroke="#ffff00"
      stroke-width="12"

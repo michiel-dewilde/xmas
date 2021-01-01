@@ -35,8 +35,8 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="3840"
-     inkscape:window-height="1537"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
      id="namedview12"
      showgrid="false"
      inkscape:zoom="0.44270833"
@@ -45,17 +45,18 @@
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg10" />
+     inkscape:current-layer="svg10"
+     inkscape:document-rotation="0" />
   <defs
      id="defs2" />
   <image
      sodipodi:absref="C:\kd\xmas\data\avg\perc2-koend-kids2.png"
      xlink:href="../avg/perc2-koend-kids2.png"
-     id="image4"
-     y="0"
-     x="0"
+     height="1920"
      width="1080"
-     height="1920" />
+     x="0"
+     y="0"
+     id="image4" />
   <rect
      fill="none"
      height="1920"
@@ -76,12 +77,12 @@
      y="560.18823" />
   <rect
      fill="none"
-     height="636.98828"
+     height="481.12949"
      id="mbox"
      stroke="#ffff00"
-     stroke-width="10"
-     width="513.03528"
-     x="42.917648"
+     stroke-width="9.99997"
+     width="415.90585"
+     x="70.023529"
      y="795.1059" />
   <rect
      fill="none"
