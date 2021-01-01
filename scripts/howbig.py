@@ -30,11 +30,11 @@ class Howbig:
         self.bulb_scale = self.bulbsize / (self.bulb_unlit.size[1] / 2)
         self.slinger_core_pen = aggdraw.Pen(255, 4.0 * scale, linecap=2)
 
-        self.blotsize = 150 * scale
+        self.blotsize = 100 * scale
         self.bigblot_side = round(4 * self.blotsize)
         self.blot_scale = self.blotsize / self.bigblot_side
         blotkernel = gkern2d(self.bigblot_side, 3)
-        blotkernel = np.round(blotkernel*(192/np.max(blotkernel)))
+        blotkernel = np.round(blotkernel*(128/np.max(blotkernel)))
         blotdata = np.zeros((self.bigblot_side, self.bigblot_side), dtype=np.uint8)
         blotdata[:,:] = blotkernel
         self.bigblot = Image.fromarray(blotdata, 'L')

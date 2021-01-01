@@ -84,17 +84,18 @@ class Partitioning:
             canvas.path(path, None, brush)
             canvas.flush()
         # calculate slinger mask
-        self.slinger_mask = Image.new("L", self.howbig.size, 0)
-        canvas = aggdraw.Draw(self.slinger_mask)
+        slinger_mask = Image.new("L", self.howbig.size, 0)
+        canvas = aggdraw.Draw(slinger_mask)
         for fe in self.tiling.fes:
             if fe.slinger is None:
                 continue
             fe.slinger.draw_core(canvas)
         canvas.flush()
-        # calculate unlit bulbs image        
-        self.unlit_bulbs_img = Image.new("RGBA", self.howbig.size, (0, 0, 0, 0))
+        # calculate slinger + unlit bulbs image        
+        self.overlay_img = Image.new("RGBA", self.howbig.size, (0, 0, 0, 0))
+        self.overlay_img.paste("darkgreen", mask=slinger_mask)
         for fe in self.tiling.fes:
             if fe.slinger is None:
                 continue
             for light in fe.slinger.lights:
-                light.draw_bulb_u(self.unlit_bulbs_img)
+                light.draw_bulb_u(self.overlay_img)

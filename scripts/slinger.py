@@ -144,7 +144,7 @@ class Light:
         coloredblotimg.putalpha(self.smallblot_ongrid_cropped)
         hiliteimg.paste(coloredblotimg, self.smallblot_pos_cropped, coloredblotimg)
     def draw_bulb_u(self, bulbsimg):
-        copy_paste_rgba(self.rsbulb_u_ongrid_cropped, bulbsimg, self.rsbulb_pos_cropped)
+        alpha_composite_rgba(self.rsbulb_u_ongrid_cropped, bulbsimg, self.rsbulb_pos_cropped)
     def draw_bulb_l(self, bulbsimg, color):
         bulbsimg.paste(color, self.rsbulb_pos_cropped, self.rsbulb_l_ongrid_cropped)
 
