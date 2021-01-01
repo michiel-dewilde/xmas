@@ -1,7 +1,9 @@
 import aggdraw, math, random
 from PIL import Image, ImageDraw
 from .tiler import Tiling
-from .slinger import Howbig, Slinger
+from .slinger import Slinger
+from .howbig import Howbig
+from .common import *
 
 width = 1920
 height = 1080

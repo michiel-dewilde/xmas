@@ -2,25 +2,8 @@ import aggdraw, colorsys, math, os, random
 from PIL import Image, ImageDraw
 import numpy as np
 import scipy.stats as st
-
-def gkern1d(kernlen, nsig):
-    x = np.linspace(-nsig, nsig, kernlen+1)
-    kern1d = np.diff(st.norm.cdf(x))
-    return kern1d/kern1d.sum()
-
-def gkern2d(kernlen, nsig):
-    x = np.linspace(-nsig, nsig, kernlen+1)
-    kern1d = np.diff(st.norm.cdf(x))
-    kern2d = np.outer(kern1d, kern1d)
-    return kern2d/kern2d.sum()
-
-def copy_paste_rgba(src, dst, box=None):
-    srcnoalpha = src.copy()
-    srcnoalpha.putalpha(255)
-    dst.paste(srcnoalpha, box=box, mask=src)
-    
-def alpha_composite_rgba(src, dst, box=None):
-    dst.alpha_composite(src, dest=((0,0) if box is None else box))
+from .common import *
+from .howbig import Howbig
 
 class Slingerkern:
     def __init__(self, w, hh, wiggle, kernside, nsig, nlights, lv=0, rv=0):
@@ -86,40 +69,6 @@ class Slingerkern:
             rc = difftraject[xi]
             y = y0 + rc * xf
             self.lightpos.append((x,y,rc))
-
-slinger_data = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'slinger_data')
-gbulb_unlit_rgb = Image.open(os.path.join(slinger_data, 'bulb-unlit-rgb.png'))
-gbulb_unlit_a = Image.open(os.path.join(slinger_data, 'bulb-unlit-a.png'))
-gbulb_unlit = Image.new("RGBA", gbulb_unlit_rgb.size, (0, 0, 0, 0))
-gbulb_unlit.paste(gbulb_unlit_rgb)
-gbulb_unlit.putalpha(gbulb_unlit_a)
-gbulb_lightonly = Image.open(os.path.join(slinger_data, 'bulb-lightonly.png'))
-
-class Howbig:
-    def __init__(self, weight):
-        scale = 5 / weight
-        self.hh = 20 * scale
-        self.stick = 10 * scale
-        self.bulbsize = 3 * self.stick
-        self.knottobulb = self.stick + 2/3 * self.bulbsize
-        self.lightspacing = 50 * scale
-
-        bulbsrc_initheight = 4 * (2*self.bulbsize)
-        bulbsrc_new_size = (round(bulbsrc_initheight*gbulb_unlit.size[0]/gbulb_unlit.size[1]), round(bulbsrc_initheight))
-        self.bulb_unlit = gbulb_unlit.resize(bulbsrc_new_size)
-        self.bulb_lightonly = gbulb_lightonly.resize(bulbsrc_new_size)
-
-        self.bulb_scale = self.bulbsize / (self.bulb_unlit.size[1] / 2)
-        self.slinger_core_pen = aggdraw.Pen(255, 4.0 * scale, linecap=2)
-
-        self.blotsize = 150 * scale
-        self.bigblot_side = round(4 * self.blotsize)
-        self.blot_scale = self.blotsize / self.bigblot_side
-        blotkernel = gkern2d(self.bigblot_side, 3)
-        blotkernel = np.round(blotkernel*(192/np.max(blotkernel)))
-        blotdata = np.zeros((self.bigblot_side, self.bigblot_side), dtype=np.uint8)
-        blotdata[:,:] = blotkernel
-        self.bigblot = Image.fromarray(blotdata, 'L')
 
 class Light:
     def __init__(self, slinger):

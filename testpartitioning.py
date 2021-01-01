@@ -2,14 +2,7 @@ import aggdraw, colorsys, json, math, random
 import numpy as np
 from PIL import Image, ImageDraw, ImageOps
 from scripts.partitioning import Partitioning, width, height
-
-def copy_paste_rgba(src, dst, box=None):
-    srcnoalpha = src.copy()
-    srcnoalpha.putalpha(255)
-    dst.paste(srcnoalpha, box=box, mask=src)
-    
-def alpha_composite_rgba(src, dst, box=None):
-    dst.alpha_composite(src, dest=((0,0) if box is None else box))
+from scripts.common import *
 
 #layout = json.loads('{"h":[{"v":["a","a","a"]},{"v":["a","a"]}]}')
 layout = json.loads('{"h": [{"ccw":{"a":1,"c":"a","d":["a","a","a","a"]}}, {"h":[{"v":["a","a","a"]},{"v":["a","a"]}]}]}')

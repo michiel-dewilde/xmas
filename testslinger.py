@@ -3,15 +3,9 @@ from PIL import Image, ImageDraw
 import numpy as np
 import scipy.stats as st
 
-from scripts.slinger import Slinger, Howbig
-
-def copy_paste_rgba(src, dst, box=None):
-    srcnoalpha = src.copy()
-    srcnoalpha.putalpha(255)
-    dst.paste(srcnoalpha, box=box, mask=src)
-    
-def alpha_composite_rgba(src, dst, box=None):
-    dst.alpha_composite(src, dest=((0,0) if box is None else box))
+from scripts.slinger import Slinger
+from scripts.howbig import Howbig
+from scripts.common import *
 
 howbig = Howbig(weight=5)
 hh = howbig.hh
