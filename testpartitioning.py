@@ -38,7 +38,7 @@ for fe in part.tiling.fes:
     for light in fe.slinger.lights:
         light.draw_bulb_l(workimg, light.hsvcolor)
 
-#workimg.show()
+workimg.show()
 
 import moviepy.editor
 

@@ -5,4 +5,4 @@ if not os.path.exists('.venv'):
 vpy = os.path.join('.venv', 'Scripts', 'python.exe')
 subprocess.call([vpy, '-m', 'pip', 'install', '--upgrade', 'pip', 'setuptools', 'wheel'])
 vpip = os.path.join('.venv', 'Scripts', 'pip.exe')
-subprocess.call([vpip, 'install', '--upgrade', 'git+https://github.com/pytroll/aggdraw', 'numpy==1.19.3', 'pillow', 'pylint', 'scipy', 'https://github.com/Zulko/moviepy.git'])
+subprocess.call([vpip, 'install', '--upgrade', 'git+https://github.com/pytroll/aggdraw', 'numpy==1.19.3', 'pillow', 'pylint', 'scipy', 'git+https://github.com/Zulko/moviepy.git'])
