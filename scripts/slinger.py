@@ -104,7 +104,7 @@ class Light:
         smallblot_cropbox = (self.smallblot_pos_cropped[0]-smallblot_pos[0], self.smallblot_pos_cropped[1]-smallblot_pos[1],
                              smallblot_botright_cropped[0]-smallblot_pos[0], smallblot_botright_cropped[1]-smallblot_pos[1])
         self.smallblot_ongrid_cropped = smallblot_ongrid.crop(smallblot_cropbox)
-        
+        self.smallblot_ongrid_cropped_np = np.array(self.smallblot_ongrid_cropped)
 
     def prepare_bulb(self):
         howbig = self.slinger.howbig
@@ -131,11 +131,13 @@ class Light:
         copy_paste_rgba(rbulb_u, rbulb_u_ongrid, (rbulb_ongrid_left_extra, rbulb_ongrid_top_extra))
         rsbulb_u_ongrid = rbulb_u_ongrid.resize((rsbulb_ongrid_w, rsbulb_ongrid_h))
         self.rsbulb_u_ongrid_cropped = rsbulb_u_ongrid.crop(rsbulb_cropbox)
+        self.rsbulb_u_ongrid_cropped_np = np.array(self.rsbulb_u_ongrid_cropped)
 
-        rbulb_l_ongrid = Image.new("RGBA", (rbulb_ongrid_w, rbulb_ongrid_h), (0, 0, 0, 0))
+        rbulb_l_ongrid = Image.new("L", (rbulb_ongrid_w, rbulb_ongrid_h), 0)
         copy_paste_rgba(rbulb_l, rbulb_l_ongrid, (rbulb_ongrid_left_extra, rbulb_ongrid_top_extra))
         rsbulb_l_ongrid = rbulb_l_ongrid.resize((rsbulb_ongrid_w, rsbulb_ongrid_h))
         self.rsbulb_l_ongrid_cropped = rsbulb_l_ongrid.crop(rsbulb_cropbox)
+        self.rsbulb_l_ongrid_cropped_np = np.array(self.rsbulb_l_ongrid_cropped)
     def prepare_bitmaps(self):
         self.prepare_highlight()
         self.prepare_bulb()
@@ -147,11 +149,30 @@ class Light:
         weightedblotimg = Image.new("L", self.smallblot_ongrid_cropped.size, 0)
         weightedblotimg.paste(weighing, mask=self.smallblot_ongrid_cropped)
         hiliteimg.paste(tuple(round(255*i) for i in colorsys.hsv_to_rgb(h,s,1)), self.smallblot_pos_cropped, weightedblotimg)
+    def draw_highlight_np(self, hiliteimg_np, hsvcolor):
+        h,s,v = hsvcolor
+        weighing = round(255*v)
+        if (weighing == 0):
+            return
+        weightedblotimg_np = np.multiply(self.smallblot_ongrid_cropped_np, weighing, dtype='uint16')
+        blot_target = hiliteimg_np[self.smallblot_pos_cropped[1]:(self.smallblot_pos_cropped[1]+self.smallblot_ongrid_cropped_np.shape[0]),
+                                   self.smallblot_pos_cropped[0]:(self.smallblot_pos_cropped[0]+self.smallblot_ongrid_cropped_np.shape[1])]
+        rgb = np.round(255*np.array(colorsys.hsv_to_rgb(h,s,1))).astype('uint8')
+        np.copyto(blot_target, ((np.multiply((65025-weightedblotimg_np)[:,:,np.newaxis], blot_target, dtype='uint32')
+                               + np.multiply(weightedblotimg_np[:,:,np.newaxis], rgb[np.newaxis, np.newaxis, :], dtype='uint32')) // 65025).astype('uint8'))
     def draw_bulb_u(self, bulbsimg):
         alpha_composite_rgba(self.rsbulb_u_ongrid_cropped, bulbsimg, self.rsbulb_pos_cropped)
     def draw_bulb_l(self, bulbsimg, hsvcolor):
         h,s,v = hsvcolor
         bulbsimg.paste(tuple(round(255*i) for i in colorsys.hsv_to_rgb(h,min(s, 8*v),(1 + 7*v)/8)), self.rsbulb_pos_cropped, self.rsbulb_l_ongrid_cropped)
+    def draw_bulb_l_np(self, bulbsimg_np, hsvcolor):
+        h,s,v = hsvcolor
+        bulb_target = bulbsimg_np[self.rsbulb_pos_cropped[1]:(self.rsbulb_pos_cropped[1]+self.rsbulb_l_ongrid_cropped_np.shape[0]),
+                                  self.rsbulb_pos_cropped[0]:(self.rsbulb_pos_cropped[0]+self.rsbulb_l_ongrid_cropped_np.shape[1])]
+        rgb = np.round(255*np.array(colorsys.hsv_to_rgb(h,min(s, 8*v),(1 + 7*v)/8))).astype('uint8')
+
+        np.copyto(bulb_target, ((np.multiply((255-self.rsbulb_l_ongrid_cropped_np)[:,:,np.newaxis], bulb_target, dtype='uint16')
+                               + np.multiply(self.rsbulb_l_ongrid_cropped_np[:,:,np.newaxis], rgb[np.newaxis, np.newaxis, :], dtype='uint16')) // 255).astype('uint8'))
 
 # idealEnd should be exactly right of or exactly below idealBegin
 class Slinger:

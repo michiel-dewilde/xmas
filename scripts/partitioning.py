@@ -99,3 +99,4 @@ class Partitioning:
                 continue
             for light in fe.slinger.lights:
                 light.draw_bulb_u(self.overlay_img)
+        self.overlay_img_np = np.array(self.overlay_img)
