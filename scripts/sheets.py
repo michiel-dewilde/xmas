@@ -28,7 +28,7 @@ class Sheets:
                 elif key == 'weight':
                     minput.weight = float(value)
                 elif key == 'shortend' and value:
-                    self.shortend = float(value)
+                    minput.shortend = float(value)
                 else:
                     setattr(minput, key, value)
             minput.key = os.path.splitext(minput.filename)[0]

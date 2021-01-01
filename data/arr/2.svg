@@ -35,53 +35,55 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="3375"
-     inkscape:window-height="1471"
+     inkscape:window-width="1904"
+     inkscape:window-height="1041"
      id="namedview24"
      showgrid="false"
      inkscape:zoom="0.54270833"
      inkscape:cx="751.10394"
-     inkscape:cy="645.6626"
+     inkscape:cy="524.11994"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="0"
-     inkscape:current-layer="svg22" />
+     inkscape:current-layer="svg22"
+     inkscape:document-rotation="0" />
   <defs
      id="defs2" />
   <g
-     id="g855">
+     id="g855"
+     transform="translate(-14.740883)">
     <image
        sodipodi:absref="C:\kd\xmas\data\clips\kbox\bar-matthias-video.png"
        xlink:href="../clips/kbox/bar-matthias-video.png"
-       y="11.471344"
-       x="32.081169"
-       width="448.4046"
+       height="256.9108"
        id="bar-matthias-video"
-       height="256.9108" />
+       width="448.4046"
+       x="32.081169"
+       y="11.471344" />
     <image
        sodipodi:absref="C:\kd\xmas\data\clips\kbox\bsn-chris.png"
        xlink:href="../clips/kbox/bsn-chris.png"
-       y="7.0739827"
-       x="1429.5398"
-       width="482.7739"
+       height="238.621"
        id="bsn-chris"
-       height="238.621" />
+       width="482.7739"
+       x="480.48578"
+       y="11.471344" />
     <image
        sodipodi:absref="C:\kd\xmas\data\clips\kbox\horn-nathalie.png"
        xlink:href="../clips/kbox/horn-nathalie.png"
-       y="7.0739827"
-       x="960.09045"
-       width="469.44931"
+       height="245.39391"
        id="horn-nathalie"
-       height="245.39391" />
+       width="469.44931"
+       x="960.09045"
+       y="7.0739827" />
     <image
        sodipodi:absref="C:\kd\xmas\data\clips\kbox\perc1-koend.png"
        xlink:href="../clips/kbox/perc1-koend.png"
-       y="18.442442"
-       x="447.98868"
-       width="452.54831"
+       height="254.5584"
        id="perc1-koend"
-       height="254.5584" />
+       width="452.54831"
+       x="1452.2113"
+       y="11.072004" />
   </g>
   <g
      id="g910"
@@ -91,48 +93,48 @@
       <image
          sodipodi:absref="C:\kd\xmas\data\clips\kbox\asax2-dirk.png"
          xlink:href="../clips/kbox/asax2-dirk.png"
-         style="stroke-width:1"
-         y="203.02078"
-         x="1682.1318"
-         width="258.5621"
+         height="445.54089"
          id="asax2-dirk"
-         height="445.54089" />
+         width="258.5621"
+         x="1682.1318"
+         y="203.02078"
+         style="stroke-width:1" />
       <image
          sodipodi:absref="C:\kd\xmas\data\clips\kbox\bsax-astrid.png"
          xlink:href="../clips/kbox/bsax-astrid.png"
-         style="stroke-width:0.999997"
-         y="635.0058"
-         x="1676.0953"
-         width="258.5621"
+         height="445.54089"
          id="bsax-astrid"
-         height="445.54089" />
+         width="258.5621"
+         x="1676.0953"
+         y="635.0058"
+         style="stroke-width:0.999997" />
     </g>
     <g
        id="g884">
       <image
          sodipodi:absref="C:\kd\xmas\data\clips\kbox\asax1-jonathan.png"
          xlink:href="../clips/kbox/asax1-jonathan.png"
-         y="494.83939"
-         x="1278.2836"
-         width="403.84821"
+         height="285.25571"
          id="asax1-jonathan"
-         height="285.25571" />
+         width="403.84821"
+         x="1278.2836"
+         y="494.83939" />
       <image
          sodipodi:absref="C:\kd\xmas\data\clips\kbox\cl3-sanderijn-video.png"
          xlink:href="../clips/kbox/cl3-sanderijn-video.png"
-         y="780.09509"
-         x="1278.2836"
-         width="372.01529"
+         height="309.6647"
          id="cl3-sanderijn-video"
-         height="309.6647" />
+         width="372.01529"
+         x="1278.2836"
+         y="780.09509" />
       <image
          sodipodi:absref="C:\kd\xmas\data\clips\kbox\horn-inge.png"
          xlink:href="../clips/kbox/horn-inge.png"
-         y="203.02078"
-         x="1287.366"
-         width="394.76581"
+         height="291.8186"
          id="horn-inge"
-         height="291.8186" />
+         width="394.76581"
+         x="1287.366"
+         y="203.02078" />
     </g>
     <g
        id="g873">
@@ -141,46 +143,46 @@
         <image
            sodipodi:absref="C:\kd\xmas\data\clips\kbox\cl1-heleenba.png"
            xlink:href="../clips/kbox/cl1-heleenba.png"
-           y="639.38574"
-           x="-1.4077679e-05"
-           width="259.89221"
+           height="443.26059"
            id="cl1-heleenba"
-           height="443.26059" />
+           width="259.89221"
+           x="-1.4077679e-05"
+           y="639.38574" />
         <image
            sodipodi:absref="C:\kd\xmas\data\clips\kbox\cl1-roland.png"
            xlink:href="../clips/kbox/cl1-roland.png"
-           y="641.1203"
-           x="240.64963"
-           width="258.5621"
+           height="445.54089"
            id="cl1-roland"
-           height="445.54089" />
+           width="258.5621"
+           x="240.64963"
+           y="641.1203" />
         <image
            sodipodi:absref="C:\kd\xmas\data\clips\kbox\cl-geert.png"
            xlink:href="../clips/kbox/cl-geert.png"
-           y="641.1203"
-           x="499.21173"
-           width="254.5584"
+           height="452.54831"
            id="cl-geert"
-           height="452.54831" />
+           width="254.5584"
+           x="499.21173"
+           y="641.1203" />
       </g>
       <g
          id="g859">
         <image
            sodipodi:absref="C:\kd\xmas\data\clips\kbox\tbn-michieldw3-video.png"
            xlink:href="../clips/kbox/tbn-michieldw3-video.png"
-           y="288.54279"
-           x="396.88165"
-           width="342.90439"
+           height="335.9537"
            id="tbn-michieldw3-video"
-           height="335.9537" />
+           width="342.90439"
+           x="396.88165"
+           y="288.54279" />
         <image
            sodipodi:absref="C:\kd\xmas\data\clips\kbox\tbn-simon2-video.png"
            xlink:href="../clips/kbox/tbn-simon2-video.png"
-           y="310.92953"
-           x="18.42609"
-           width="354.71149"
+           height="324.771"
            id="tbn-simon2-video"
-           height="324.771" />
+           width="354.71149"
+           x="18.42609"
+           y="310.92953" />
       </g>
     </g>
     <g
@@ -188,35 +190,35 @@
       <image
          sodipodi:absref="C:\kd\xmas\data\clips\kbox\asax1-regine.png"
          xlink:href="../clips/kbox/asax1-regine.png"
-         y="221.14351"
-         x="745.65308"
-         width="254.5584"
+         height="452.54831"
          id="asax1-regine"
-         height="452.54831" />
+         width="254.5584"
+         x="745.65308"
+         y="221.14351" />
       <image
          sodipodi:absref="C:\kd\xmas\data\clips\kbox\cl2-fienc.png"
          xlink:href="../clips/kbox/cl2-fienc.png"
-         y="624.49646"
-         x="739.78601"
-         width="251.7141"
+         height="457.66199"
          id="cl2-fienc"
-         height="457.66199" />
+         width="251.7141"
+         x="739.78601"
+         y="624.49646" />
       <image
          sodipodi:absref="C:\kd\xmas\data\clips\kbox\cl3-carolien.png"
          xlink:href="../clips/kbox/cl3-carolien.png"
-         y="634.70367"
-         x="1007.1732"
-         width="254.5584"
+         height="452.54828"
          id="cl3-carolien"
-         height="452.54828" />
+         width="254.5584"
+         x="1007.1732"
+         y="634.70367" />
       <image
          sodipodi:absref="C:\kd\xmas\data\clips\kbox\tsax-steven.png"
          xlink:href="../clips/kbox/tsax-steven.png"
-         y="228.51395"
-         x="992.84106"
-         width="285.4425"
+         height="403.58389"
          id="tsax-steven"
-         height="403.58389" />
+         width="285.4425"
+         x="992.84106"
+         y="228.51395" />
     </g>
   </g>
 </svg>

@@ -29,12 +29,12 @@ class Cropdata:
     # dst: destination (width, height)
     # inset: destination useful inset Rect
     def __init__(self, src, scene, head, dst, inset):
-        print('')
-        print('src: ', src)
-        print('scene: ', scene)
-        print('head: ', head)
-        print('dst: ', dst)
-        print('inset: ', inset)
+        #print('')
+        #print('src: ', src)
+        #print('scene: ', scene)
+        #print('head: ', head)
+        #print('dst: ', dst)
+        #print('inset: ', inset)
 
         ascene_w, ascene_h = wh_around(media_wh = (scene.w, scene.h), aspect_wh = (inset.w, inset.h))
         scene_cx = scene.x + scene.w/2
@@ -81,10 +81,10 @@ class Cropdata:
 
         self.size = (max(round(src[0] / iscale), dst[0]), max(round(src[1] / iscale), dst[1]))
 
-        print('')
-        print('iscene_w: ', iscene_w)
-        print('iscene_h: ', iscene_h)
-        print('iscale: ', iscale)
+        #print('')
+        #print('iscene_w: ', iscene_w)
+        #print('iscene_h: ', iscene_h)
+        #print('iscale: ', iscale)
 
         new_w = min(round(iscene_w / iscale), self.size[0])
         new_h = min(round(iscene_h / iscale), self.size[1])
@@ -102,6 +102,6 @@ class Cropdata:
             new_y = self.size[1] - new_h
 
         self.crop = Rect(new_x, new_y, new_w, new_h)
-        print('')
-        print('size: ', self.size)
-        print('crop: ', self.crop)
+        #print('')
+        #print('size: ', self.size)
+        #print('crop: ', self.crop)

@@ -70,9 +70,20 @@ def get_tileclip(tile, id, whichbox):
         maskvideo = moviepy.video.VideoClip.ImageClip(np.array(tile.mask)/255, is_mask=True)
         return clip.with_mask(maskvideo).with_position(tile.maskpos)
 
+class Rotating_color_tile:
+    def __init__(self, size, periodiccolors):
+        self.periodiccolors = periodiccolors
+        self.offset = random.randrange(len(periodiccolors))
+        w, h = size
+        self.result = np.empty((h, w, 3), dtype=np.uint8)
+    def __call__(self, t):
+        self.result[:,:] = self.periodiccolors[(math.floor(t*30)+self.offset) % len(self.periodiccolors)]
+        return self.result
+
 def make_arrclip(akey, whichbox):
     weights = {}
     size = (1920//2, 1080//2)
+    #size = (1920, 1080)
     #size = (2*1920, 2*1080)
     for mkey, minput in minputs.items():
         weights[mkey] = minput.weight
@@ -80,8 +91,26 @@ def make_arrclip(akey, whichbox):
     part = Partitioning(size=size, layout=layout, weights=weights)
 
     clips = []
+
+    if akey == '11':
+        basecolor = np.array([173,9,0])
+        minf = 0.7
+        maxf = 1.0
+        sine01 = (1+np.sin(np.linspace(0,2*np.pi,30*6+1)[:-1]))/2
+        periodiccolors = np.array(np.round(np.outer(minf + sine01 * (maxf - minf), basecolor[np.newaxis,:])), dtype=np.uint8)
+        endstart = 169
+        for tile in part.tiling.tiles:
+            maskvideo = moviepy.video.VideoClip.ImageClip(np.array(tile.mask)/255, is_mask=True)
+            clips.append(moviepy.video.VideoClip.VideoClip(make_frame=Rotating_color_tile(tile.mask.size, periodiccolors)).with_mask(maskvideo).with_position(tile.maskpos).with_start(endstart))
+        endtext = Image.open(os.path.join('media', 'end.png'))
+        if (list(size) != list(endtext.size)):
+            endtext = endtext.resize(size)
+        endtextvideo = moviepy.video.VideoClip.ImageClip(np.array(endtext))
+        clips.append(endtextvideo.with_start(endstart))
+
     for tile in part.tiling.tiles:
         id = tile.id
+        print(id)
         clip = get_tileclip(tile, id, whichbox)
         minput = minputs[id]
         delay = minput.delay
@@ -98,7 +127,7 @@ def make_arrclip(akey, whichbox):
                 clip = get_tileclip(tile, id, whichbox)
                 minput = minputs[id]
                 delay = minput.delay
-                timpstart = m2t(13)
+                timpstart = m2t(9) #13
                 timpend = m2t(20)
                 clip = clip.subclip(timpstart-delay, timpend-delay).with_start(timpstart)
                 clips.append(clip)
@@ -110,6 +139,14 @@ def make_arrclip(akey, whichbox):
                 vjstart = m2t(18.5)
                 vjend = m2t(25)
                 clip = clip.subclip(vjstart-delay, vjend-delay).with_start(vjstart)
+                clips.append(clip)
+            if 'henk' in tile.id:
+                id = 'tuba-henk2'
+                clip = get_tileclip(tile, id, whichbox)
+                minput = minputs[id]
+                delay = minput.delay
+                hstart = m2t(33)
+                clip = clip.subclip(hstart-delay).with_start(hstart)
                 clips.append(clip)
 
     comp = moviepy.editor.CompositeVideoClip(clips=clips, size=size)
