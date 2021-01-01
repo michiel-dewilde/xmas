@@ -51,6 +51,7 @@ class Partitioning:
         # set actual vertex coordinate
         for fv in self.tiling.fvs:
             fv.ap = (random.randrange(fv.axmin,fv.axmax+1), random.randrange(fv.aymin,fv.aymax+1))
+        self.numlights = 0
         # calculate slingers
         for fe in self.tiling.fes:
             fe.slinger = None
@@ -60,6 +61,9 @@ class Partitioning:
             vmin = nhe.target
             vmax = phe.target
             fe.slinger = Slinger(self.howbig, vmin.p, vmax.p, vmin.ap, vmax.ap)
+            for light in fe.slinger.lights:
+                light.globalindex = self.numlights
+                self.numlights += 1
         # calculate tile crops
         brush = aggdraw.Brush(255)
         for tile in self.tiling.tiles:
