@@ -1,10 +1,6 @@
 import json, math
 import numpy as np
 
-def set_seq(first, second):
-    first.next = second
-    second.prev = first
-
 class Tile:
     def __init__(self, id, tishe, lishe, bishe, rishe):
         self.id = id
@@ -24,6 +20,7 @@ class Ishe: # initial subhalfedge
         self.pmax = pmax
         self.next_ishe = None
         self.tile = None
+        self.fhes = []
     def split(self, points):
         ishes = []
         orig_he = self.he
@@ -42,18 +39,44 @@ class Ishe: # initial subhalfedge
 
 class Ihe: # initial halfedge
     def __init__(self, edge, ispos, pmin, pmax):
-        self.edge = edge # E1
+        self.edge = edge
         self.ispos = ispos # bool
         self.first_ishe = Ishe(self, pmin, pmax)
-        self.twin = None # He1
+        self.twin = None
 
 class Ie: # initial edge
-    def __init__(self, hv, pmin ,pmax):
+    def __init__(self, hv, pmin, pmax):
         self.hv = hv # 'h' or 'v'
         self.pmin = pmin
         self.pmax = pmax
         nhe = Ihe(self, False, pmin, pmax)
         phe = Ihe(self, True, pmin, pmax)
+        nhe.twin = phe
+        phe.twin = nhe
+        self.hes = [nhe, phe]
+
+class Fv: # final vertex
+    def __init__(self, p):
+        self.p = p
+        self.incident = []
+
+class Fhe: # final halfedge
+    def __init__(self, edge, ispos):
+        self.edge = edge
+        self.ispos = ispos # bool
+        self.twin = None
+        self.ishe = None
+        self.prev = None
+        self.next = None
+        self.target = None
+
+class Fe: # final edge
+    def __init__(self, ie, pmin, pmax):
+        self.ie = ie
+        self.pmin = pmin
+        self.pmax = pmax
+        nhe = Fhe(self, False)
+        phe = Fhe(self, True)
         nhe.twin = phe
         phe.twin = nhe
         self.hes = [nhe, phe]
@@ -195,27 +218,96 @@ class Tiling:
             return
         assert False
 
-    def calc_tiling(self, layout):
+    def create_ies_tiles(self, layout):
+        self.ies = []
+        self.tiles = []
         topleft = (0, 0)
         topright = (self.size[0], 0)
         botleft = (0, self.size[1])
         botright = (self.size[0], self.size[1])
-        self.ite = Ie('h', topleft, topright)
-        self.ile = Ie('v', topleft, botleft)
-        self.ibe = Ie('h', botleft, botright)
-        self.ire = Ie('v', topright, botright)
-        self.ies += [self.ite, self.ile, self.ibe, self.ire]
-        self.process_layout(layout, self.ite.hes[0].first_ishe, self.ile.hes[1].first_ishe, self.ibe.hes[1].first_ishe, self.ire.hes[0].first_ishe)
+        self.tie = Ie('h', topleft, topright)
+        self.lie = Ie('v', topleft, botleft)
+        self.bie = Ie('h', botleft, botright)
+        self.rie = Ie('v', topright, botright)
+        self.ies += [self.tie, self.lie, self.bie, self.rie]
+        self.process_layout(layout, self.tie.hes[0].first_ishe, self.lie.hes[1].first_ishe, self.bie.hes[1].first_ishe, self.rie.hes[0].first_ishe)
 
+    def merge_ie(self, ie):
+        nishe = ie.hes[0].first_ishe
+        pishe = ie.hes[1].first_ishe
+        pmin = ie.pmin
+        while nishe is not None:
+            assert pishe is not None
+            pmax = min(nishe.pmax, pishe.pmax)
+            fe = Fe(ie, pmin, pmax)
+            self.fes.append(fe)
+            nishe.fhes.append(fe.hes[0])
+            fe.hes[0].ishe = nishe
+            pishe.fhes.append(fe.hes[1])
+            fe.hes[1].ishe = pishe
+            if nishe.pmax == pmax:
+                nishe = nishe.next_ishe
+            if pishe.pmax == pmax:
+                pishe = pishe.next_ishe
+            pmin = pmax
+        assert pishe is None
+
+    def create_fes(self):
+        self.fes = []
+        for ie in self.ies:
+            self.merge_ie(ie)
+
+    def set_he_seq(self):
+        fhes = []
+        fhes.extend(self.tie.hes[1].first_ishe.fhes)
+        fhes.extend(self.rie.hes[1].first_ishe.fhes)
+        fhes.extend(reversed(self.bie.hes[0].first_ishe.fhes))
+        fhes.extend(reversed(self.lie.hes[0].first_ishe.fhes))
+        fhes.append(fhes[0])
+        for first, second in zip(fhes[:-1], fhes[1:]):
+            first.next = second
+            second.prev = first
+        for tile in self.tiles:
+            fhes = []
+            fhes.extend(reversed(tile.tishe.fhes))
+            fhes.extend(tile.lishe.fhes)
+            fhes.extend(tile.bishe.fhes)
+            fhes.extend(reversed(tile.rishe.fhes))
+            fhes.append(fhes[0])
+            for first, second in zip(fhes[:-1], fhes[1:]):
+                first.next = second
+                second.prev = first
+
+    def create_fvs(self):
+        self.fvs = []
+        for fe in self.fes:
+            for ispos in (False, True):
+                fhe = fe.hes[ispos]
+                if fhe.target is not None:
+                    continue
+                p = (fe.pmin, fe.pmax)[ispos]
+                fv = Fv(p)
+                self.fvs.append(fv)
+                circ = fhe
+                while True:
+                    circ.target = fv
+                    fv.incident.append(circ)
+                    circ = circ.next.twin
+                    if circ == fhe:
+                        break
+                
     def __init__(self, size, layout, weights):
         self.size = size
         self.weights = weights
-        self.ies = []
-        self.tiles = []
-        self.calc_tiling(layout)
+        self.create_ies_tiles(layout)
+        self.create_fes()
+        self.set_he_seq()
+        self.create_fvs()
 
 #tiling = Tiling(size = (1920,1080), layout = json.loads('{"h":[{"v":["a","a","a"]},{"v":["a","a"]}]}'), weights = {'a': 1.0})
 tiling = Tiling(size = (1920,1080), layout = json.loads('{"ccw":{"a":1,"c":"a","d":["a","a","a","a"]}}'), weights = {'a': 1.0})
+
+print(len(tiling.fvs))
 
 #from pprint import pprint
 for tile in tiling.tiles:
