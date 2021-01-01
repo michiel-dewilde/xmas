@@ -1,7 +1,7 @@
 import aggdraw, math, random
 from PIL import Image, ImageDraw
 from .tiler import Tiling
-from .slinger import hh, Slinger
+from .slinger import Howbig, Slinger
 
 width = 1920
 height = 1080
@@ -10,6 +10,8 @@ rel_delta = 1/3
 class Partitioning:
     def __init__(self, layout, weights):
         self.tiling = Tiling(size=(width, height), layout=layout, weights=weights)
+        self.howbig = Howbig(self.tiling.total_weight)
+        hh = self.howbig.hh
         # initial vertex range on boundary
         for fv in self.tiling.fvs:
             if fv.p[0] == 0 or fv.p[0] == width:
@@ -56,7 +58,7 @@ class Partitioning:
             nhe, phe = fe.hes
             vmin = nhe.target
             vmax = phe.target
-            fe.slinger = Slinger(vmin.p, vmax.p, vmin.ap, vmax.ap)
+            fe.slinger = Slinger(self.howbig, vmin.p, vmax.p, vmin.ap, vmax.ap)
         # calculate tile crops
         brush = aggdraw.Brush(255)
         for tile in self.tiling.tiles:

@@ -306,6 +306,7 @@ class Tiling:
     def __init__(self, size, layout, weights):
         self.size = size
         self.weights = weights
+        self.total_weight = self.calc_w(layout)
         self.create_ies_tiles(layout)
         self.create_fes()
         self.set_he_seq()

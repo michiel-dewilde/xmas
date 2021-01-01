@@ -12,7 +12,7 @@ def alpha_composite_rgba(src, dst, box=None):
     dst.alpha_composite(src, dest=((0,0) if box is None else box))
 
 #layout = json.loads('{"h":[{"v":["a","a","a"]},{"v":["a","a"]}]}')
-layout = json.loads('{"ccw":{"a":1,"c":"a","d":["a","a","a","a"]}}')
+layout = json.loads('{"h": [{"ccw":{"a":1,"c":"a","d":["a","a","a","a"]}}, {"h":[{"v":["a","a","a"]},{"v":["a","a"]}]}]}')
 weights = {'a': 1.0}
 part = Partitioning(layout=layout, weights=weights)
 
@@ -46,7 +46,9 @@ for tile in part.tiling.tiles:
     tileimg = Image.new("RGB", tile.mask.size, color)
     resultimg.paste(tileimg, box=tile.maskpos, mask=tile.mask)
 copy_paste_rgba(blendedimg, resultimg)
-#resultimg.show()
+resultimg.show()
+
+#assert False
 
 import moviepy.editor
 
@@ -66,10 +68,6 @@ clips = []
 for tile in part.tiling.tiles:
     maskvideo = moviepy.video.VideoClip.ImageClip(np.array(tile.mask)/255, is_mask=True)
     clips.append(moviepy.video.VideoClip.VideoClip(make_frame=Rotating_color_tile(tile.mask.size)).with_mask(maskvideo).with_position(tile.maskpos))
-
-#clips.append(moviepy.video.VideoClip.ImageClip(np.array(blendedimg)))
-#clips[0].with_duration(5).write_videofile("hues.mp4", fps=30)
-#assert False
 
 tilevideo = moviepy.editor.CompositeVideoClip(clips=clips, size=blendedimg.size)
 

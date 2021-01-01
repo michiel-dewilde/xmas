@@ -22,15 +22,8 @@ def copy_paste_rgba(src, dst, box=None):
 def alpha_composite_rgba(src, dst, box=None):
     dst.alpha_composite(src, dest=((0,0) if box is None else box))
 
-blotsize = 150
-blotkernel = gkern2d(blotsize, 3)
-blotkernel = np.round(blotkernel*(192/np.max(blotkernel)))
-blotdata = np.zeros((blotsize, blotsize), dtype=np.uint8)
-blotdata[:,:] = blotkernel
-blotimage = Image.fromarray(blotdata, 'L')
-
 class Slingerkern:
-    def __init__(self, w, hh, wiggle, kernside, nsig, nlights, lv=None, rv=None):
+    def __init__(self, w, hh, wiggle, kernside, nsig, nlights, lv=0, rv=0):
         assert w > 0
         assert int(w) == w
         self.w = w
@@ -39,8 +32,8 @@ class Slingerkern:
         self.kernside = kernside
         self.nsig = nsig
         self.nlights = nlights
-        self.lv = random.uniform(-self.hh,self.hh) if lv is None else lv
-        self.rv = random.uniform(-self.hh,self.hh) if rv is None else rv
+        self.lv = lv
+        self.rv = rv
         self.calcslinger()
         self.calclightpos()
     def calcslinger(self):
@@ -94,30 +87,43 @@ class Slingerkern:
             y = y0 + rc * xf
             self.lightpos.append((x,y,rc))
 
-hh = 20
-stick = 10.
-bulbsize = 3 * stick
-knottobulb = stick + 2/3 * bulbsize
-lightspacing = 50
-
 slinger_data = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'slinger_data')
-bulb_unlit_rgb = Image.open(os.path.join(slinger_data, 'bulb-unlit-rgb.png'))
-bulb_unlit_a = Image.open(os.path.join(slinger_data, 'bulb-unlit-a.png'))
-bulb_unlit = Image.new("RGBA", bulb_unlit_rgb.size, (0, 0, 0, 0))
-bulb_unlit.paste(bulb_unlit_rgb)
-bulb_unlit.putalpha(bulb_unlit_a)
-bulb_lightonly = Image.open(os.path.join(slinger_data, 'bulb-lightonly.png'))
+gbulb_unlit_rgb = Image.open(os.path.join(slinger_data, 'bulb-unlit-rgb.png'))
+gbulb_unlit_a = Image.open(os.path.join(slinger_data, 'bulb-unlit-a.png'))
+gbulb_unlit = Image.new("RGBA", gbulb_unlit_rgb.size, (0, 0, 0, 0))
+gbulb_unlit.paste(gbulb_unlit_rgb)
+gbulb_unlit.putalpha(gbulb_unlit_a)
+gbulb_lightonly = Image.open(os.path.join(slinger_data, 'bulb-lightonly.png'))
 
-bulbsrc_scale = 0.2
-bulbsrc_new_size = (round(bulbsrc_scale*bulb_unlit.size[0]), round(bulbsrc_scale*bulb_unlit.size[1]))
-bulb_unlit = bulb_unlit.resize(bulbsrc_new_size)
-bulb_lightonly = bulb_lightonly.resize(bulbsrc_new_size)
+class Howbig:
+    def __init__(self, weight):
+        scale = 5 / weight
+        self.hh = 20 * scale
+        self.stick = 10 * scale
+        self.bulbsize = 3 * self.stick
+        self.knottobulb = self.stick + 2/3 * self.bulbsize
+        self.lightspacing = 50 * scale
 
-bulbratio = bulbsize / (bulb_unlit.size[1] / 2)
-slinger_core_pen = aggdraw.Pen(255, 4.0, linecap=2)
+        bulbsrc_initheight = 4 * (2*self.bulbsize)
+        bulbsrc_new_size = (round(bulbsrc_initheight*gbulb_unlit.size[0]/gbulb_unlit.size[1]), round(bulbsrc_initheight))
+        self.bulb_unlit = gbulb_unlit.resize(bulbsrc_new_size)
+        self.bulb_lightonly = gbulb_lightonly.resize(bulbsrc_new_size)
+
+        self.bulb_scale = self.bulbsize / (self.bulb_unlit.size[1] / 2)
+        self.slinger_core_pen = aggdraw.Pen(255, 4.0 * scale, linecap=2)
+
+        self.blotsize = 150 * scale
+        self.bigblot_side = round(4 * self.blotsize)
+        self.blot_scale = self.blotsize / self.bigblot_side
+        blotkernel = gkern2d(self.bigblot_side, 3)
+        blotkernel = np.round(blotkernel*(192/np.max(blotkernel)))
+        blotdata = np.zeros((self.bigblot_side, self.bigblot_side), dtype=np.uint8)
+        blotdata[:,:] = blotkernel
+        self.bigblot = Image.fromarray(blotdata, 'L')
 
 class Light:
-    def __init__(self):
+    def __init__(self, slinger):
+        self.slinger = slinger
         self.index = None
         self.beat = None
         self.orient = None
@@ -125,20 +131,65 @@ class Light:
         self.bulbrotation = None
         self.stickend = None
         self.bulbcenter = None
+    def prepare_highlight(self):
+        howbig = self.slinger.howbig
+        bigblot_size = (howbig.bigblot_side, howbig.bigblot_side)
+        bigblot_center = (bigblot_size[0]/2, bigblot_size[1]/2)
+        blot_scale = howbig.blot_scale
+        smallblot_offgrid_center = (blot_scale*bigblot_center[0], blot_scale*bigblot_center[1])
+        self.smallblot_pos = (math.floor(self.bulbcenter[0] - smallblot_offgrid_center[0]), math.floor(self.bulbcenter[1] - smallblot_offgrid_center[1]))
+        smallblot_ongrid_center = (self.bulbcenter[0] - self.smallblot_pos[0], self.bulbcenter[1] - self.smallblot_pos[1])
+        bigblot_ongrid_left_extra = round((smallblot_ongrid_center[0] - smallblot_offgrid_center[0]) / blot_scale)
+        bigblot_ongrid_top_extra = round((smallblot_ongrid_center[1] - smallblot_offgrid_center[1]) / blot_scale)
+        smallblot_ongrid_w = math.ceil((bigblot_size[0] + bigblot_ongrid_left_extra) * blot_scale)
+        smallblot_ongrid_h = math.ceil((bigblot_size[1] + bigblot_ongrid_top_extra) * blot_scale)
+        bigblot_ongrid_w = round(smallblot_ongrid_w / blot_scale)
+        bigblot_ongrid_h = round(smallblot_ongrid_h / blot_scale)
+
+        bigblot_ongrid = Image.new("L", (bigblot_ongrid_w, bigblot_ongrid_h), 0)
+        bigblot_ongrid.paste(howbig.bigblot, (bigblot_ongrid_left_extra, bigblot_ongrid_top_extra))
+        self.smallblot_ongrid = bigblot_ongrid.resize((smallblot_ongrid_w, smallblot_ongrid_h))
+
+    def prepare_bulb(self):
+        howbig = self.slinger.howbig
+        rbulb_u = howbig.bulb_unlit.rotate(self.bulbrotation, expand=True)
+        rbulb_l = howbig.bulb_lightonly.rotate(self.bulbrotation, expand=True)
+        rbulb_size = rbulb_u.size
+        rbulb_center = (rbulb_size[0]/2, rbulb_size[1]/2)
+        bulb_scale = howbig.bulb_scale
+        rsbulb_offgrid_center = (bulb_scale*rbulb_center[0], bulb_scale*rbulb_center[1])
+        self.rsbulb_pos = (math.floor(self.stickend[0] - rsbulb_offgrid_center[0]), math.floor(self.stickend[1] - rsbulb_offgrid_center[1]))
+        rsbulb_ongrid_center = (self.stickend[0] - self.rsbulb_pos[0], self.stickend[1] - self.rsbulb_pos[1])
+        rbulb_ongrid_left_extra = round((rsbulb_ongrid_center[0] - rsbulb_offgrid_center[0]) / bulb_scale)
+        rbulb_ongrid_top_extra = round((rsbulb_ongrid_center[1] - rsbulb_offgrid_center[1]) / bulb_scale)
+        rsbulb_ongrid_w = math.ceil((rbulb_size[0] + rbulb_ongrid_left_extra) * bulb_scale)
+        rsbulb_ongrid_h = math.ceil((rbulb_size[1] + rbulb_ongrid_top_extra) * bulb_scale)
+        rbulb_ongrid_w = round(rsbulb_ongrid_w / bulb_scale)
+        rbulb_ongrid_h = round(rsbulb_ongrid_h / bulb_scale)
+
+        rbulb_u_ongrid = Image.new("RGBA", (rbulb_ongrid_w, rbulb_ongrid_h), (0, 0, 0, 0))
+        copy_paste_rgba(rbulb_u, rbulb_u_ongrid, (rbulb_ongrid_left_extra, rbulb_ongrid_top_extra))
+        self.rsbulb_u_ongrid = rbulb_u_ongrid.resize((rsbulb_ongrid_w, rsbulb_ongrid_h))
+
+        rbulb_l_ongrid = Image.new("RGBA", (rbulb_ongrid_w, rbulb_ongrid_h), (0, 0, 0, 0))
+        copy_paste_rgba(rbulb_l, rbulb_l_ongrid, (rbulb_ongrid_left_extra, rbulb_ongrid_top_extra))
+        self.rsbulb_l_ongrid = rbulb_l_ongrid.resize((rsbulb_ongrid_w, rsbulb_ongrid_h))
+    def prepare_bitmaps(self):
+        self.prepare_highlight()
+        self.prepare_bulb()
     def draw_highlight(self, hiliteimg, color):
-        coloredblotimg = Image.new("RGBA", blotimage.size, color)
-        coloredblotimg.putalpha(blotimage)
-        hiliteimg.paste(coloredblotimg, (round(self.bulbcenter[0]-blotsize/2),round(self.bulbcenter[1]-blotsize/2)), coloredblotimg)
+        coloredblotimg = Image.new("RGBA", self.smallblot_ongrid.size, color)
+        coloredblotimg.putalpha(self.smallblot_ongrid)
+        hiliteimg.paste(coloredblotimg, self.smallblot_pos, coloredblotimg)
     def draw_bulb(self, bulbsimg, color):
-        bulb = bulb_unlit.copy()
-        bulb.paste(color, mask=bulb_lightonly)
-        rbulb = bulb.rotate(self.bulbrotation, expand=True)
-        rsbulb = rbulb.resize((round(rbulb.size[0]*bulbratio), round(rbulb.size[1]*bulbratio)))
-        copy_paste_rgba(rsbulb, bulbsimg, (round(self.stickend[0]-rsbulb.size[0]/2), round(self.stickend[1]-rsbulb.size[1]/2)))
+        rsbulb_ongrid = self.rsbulb_u_ongrid.copy()
+        rsbulb_ongrid.paste(color, mask=self.rsbulb_l_ongrid)
+        copy_paste_rgba(rsbulb_ongrid, bulbsimg, self.rsbulb_pos)
 
 # idealEnd should be exactly right of or exactly below idealBegin
 class Slinger:
-    def __init__(self, idealBegin, idealEnd, actualBegin, actualEnd):
+    def __init__(self, howbig, idealBegin, idealEnd, actualBegin, actualEnd):
+        self.howbig = howbig
         if idealBegin[0] < idealEnd[0] and idealBegin[1] == idealEnd[1]:
             self.type = 'h'
             kern_w = actualEnd[0] - actualBegin[0]
@@ -151,15 +202,15 @@ class Slinger:
             kern_rv = idealEnd[0] - actualEnd[0]
         else:
             assert False, "Not h or v"
-        nlights =  4 * round(kern_w / lightspacing / 4)
-        kern = Slingerkern(w=kern_w, hh=hh, wiggle=0.2, kernside=15, nsig=3, nlights=nlights, lv=kern_lv, rv=kern_rv)
+        nlights =  4 * round(kern_w / self.howbig.lightspacing / 4)
+        kern = Slingerkern(w=kern_w, hh=self.howbig.hh, wiggle=0.2, kernside=15, nsig=3, nlights=nlights, lv=kern_lv, rv=kern_rv)
         if self.type == 'h':
             self.traject = [(actualBegin[0]+i, idealBegin[1]+kern.traject[i]) for i in range(kern_w+1)]
         else:
             self.traject = [(idealBegin[0]-kern.traject[i], actualBegin[1]+i) for i in range(kern_w+1)]
         self.lights = []
         for i in range(len(kern.lightpos)):
-            light = Light()
+            light = Light(self)
             light.index = i
             light.beat = i % 4
             light.orient = (0 if type == 'h' else -1 if i % 2 == 0 else 1, 0 if type == 'v' else 1 if i % 2 == 0 else -1)
@@ -170,16 +221,17 @@ class Slinger:
             dirvec = (lp_rc*invnorm*muldir, -invnorm*muldir) if self.type == 'h' else (invnorm*muldir, lp_rc*invnorm*muldir)
             degrees = math.atan2(dirvec[1], dirvec[0])*180/math.pi
             light.bulbrotation = -90-degrees
-            light.stickend = (light.knot[0]+stick*dirvec[0], light.knot[1]+stick*dirvec[1])
-            light.bulbcenter = (light.knot[0]+knottobulb*dirvec[0], light.knot[1]+knottobulb*dirvec[1])
+            light.stickend = (light.knot[0]+self.howbig.stick*dirvec[0], light.knot[1]+self.howbig.stick*dirvec[1])
+            light.bulbcenter = (light.knot[0]+self.howbig.knottobulb*dirvec[0], light.knot[1]+self.howbig.knottobulb*dirvec[1])
+            light.prepare_bitmaps()
             self.lights.append(light)
     def draw_core(self, canvas):
         path = aggdraw.Path()
         for i in range(len(self.traject)):
             (path.moveto if i == 0 else path.lineto)(self.traject[i][0], self.traject[i][1])
-        canvas.path(path, slinger_core_pen)
+        canvas.path(path, self.howbig.slinger_core_pen)
         for light in self.lights:
             path = aggdraw.Path()
             path.moveto(light.knot[0], light.knot[1])
             path.lineto(light.bulbcenter[0], light.bulbcenter[1])
-            canvas.path(path, slinger_core_pen)
+            canvas.path(path, self.howbig.slinger_core_pen)

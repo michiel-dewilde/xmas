@@ -3,7 +3,7 @@ from PIL import Image, ImageDraw
 import numpy as np
 import scipy.stats as st
 
-from scripts.slinger import Slinger, hh
+from scripts.slinger import Slinger, Howbig
 
 def copy_paste_rgba(src, dst, box=None):
     srcnoalpha = src.copy()
@@ -12,6 +12,9 @@ def copy_paste_rgba(src, dst, box=None):
     
 def alpha_composite_rgba(src, dst, box=None):
     dst.alpha_composite(src, dest=((0,0) if box is None else box))
+
+howbig = Howbig(weight=5)
+hh = howbig.hh
 
 slingers = []
 
@@ -24,10 +27,11 @@ aBotleft = (iBotleft[0]+random.randrange(-hh,hh+1), iBotleft[1]+random.randrange
 iBotright = (600, 600)
 aBotright = (iBotright[0]+random.randrange(-hh,hh+1), iBotright[1]+random.randrange(-hh,hh+1))
 
-slingers.append(Slinger(iTopleft, iTopright, aTopleft, aTopright))
-slingers.append(Slinger(iBotleft, iBotright, aBotleft, aBotright))
-slingers.append(Slinger(iTopleft, iBotleft, aTopleft, aBotleft))
-slingers.append(Slinger(iTopright, iBotright, aTopright, aBotright))
+
+slingers.append(Slinger(howbig, iTopleft, iTopright, aTopleft, aTopright))
+slingers.append(Slinger(howbig, iBotleft, iBotright, aBotleft, aBotright))
+slingers.append(Slinger(howbig, iTopleft, iBotleft, aTopleft, aBotleft))
+slingers.append(Slinger(howbig, iTopright, iBotright, aTopright, aBotright))
 
 imgsize = (700, 700)
 
