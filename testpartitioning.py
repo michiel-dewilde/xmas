@@ -13,22 +13,17 @@ part = Partitioning(size=size, layout=layout, weights=weights)
 imgsize = size
 
 hiliteimg = Image.new("RGBA", imgsize, (255, 255, 255, 0))
-slingerimg = Image.new("L", imgsize, 0)
-canvas = aggdraw.Draw(slingerimg)
-bulbsimg = Image.new("RGBA", imgsize, (0, 0, 0, 0))
+slingerimg = part.slinger_mask
+bulbsimg = part.unlit_bulbs_img.copy()
 
 for fe in part.tiling.fes:
     if fe.slinger is None:
         continue
-    fe.slinger.draw_core(canvas)
     for light in fe.slinger.lights:
         color = tuple(round(255 * i) for i in colorsys.hsv_to_rgb(random.random(), 1.0, 1.0))
         #color = 'gold' if light.beat == 0 or light.beat == 1 else 'silver'
         light.draw_highlight(hiliteimg, color)
-        light.draw_bulb_u(bulbsimg)
         light.draw_bulb_l(bulbsimg, color)
-
-canvas.flush()
 
 blendedimg = hiliteimg.copy()
 blendedimg.paste("darkgreen", mask=slingerimg)
