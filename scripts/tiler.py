@@ -45,7 +45,7 @@ class Ihe: # initial halfedge
         self.twin = None
 
 class Ie: # initial edge
-    def __init__(self, hv, pmin, pmax):
+    def __init__(self, hv, pmin, pmax, is_outer=False):
         self.hv = hv # 'h' or 'v'
         self.pmin = pmin
         self.pmax = pmax
@@ -54,6 +54,7 @@ class Ie: # initial edge
         nhe.twin = phe
         phe.twin = nhe
         self.hes = [nhe, phe]
+        self.is_outer = is_outer
 
 class Fv: # final vertex
     def __init__(self, p):
@@ -81,23 +82,26 @@ class Fe: # final edge
         phe.twin = nhe
         self.hes = [nhe, phe]
 
+def calc_w(layout,weights):
+    if isinstance(layout, str):
+        return weights[layout]
+    assert isinstance(layout, dict)
+    assert len(layout) == 1
+    key, value = next(iter(layout.items()))
+    if key == 'bg':
+        return float(value)
+    if key == 'h' or key == 'v':
+        return sum(calc_w(item, weights) for item in value)
+    if 'key == cw' or key == 'ccw':
+        return sum((calc_w(item, weights) for item in value['d']), calc_w(value['c'], weights))
+    assert False
+
 class Tiling:
     def round(self, val):
         return np.round(val)
 
     def calc_w(self,layout):
-        if isinstance(layout, str):
-            return self.weights[layout]
-        assert isinstance(layout, dict)
-        assert len(layout) == 1
-        key, value = next(iter(layout.items()))
-        if key == 'bg':
-            return float(value)
-        if key == 'h' or key == 'v':
-            return sum(self.calc_w(item) for item in value)
-        if 'key == cw' or key == 'ccw':
-            return sum((self.calc_w(item) for item in value['d']), self.calc_w(value['c']))
-        assert False
+        return calc_w(layout, self.weights)
 
     def process_layout(self, layout, tishe, lishe, bishe, rishe):
         if isinstance(layout, str):
@@ -225,10 +229,10 @@ class Tiling:
         topright = (self.size[0], 0)
         botleft = (0, self.size[1])
         botright = (self.size[0], self.size[1])
-        self.tie = Ie('h', topleft, topright)
-        self.lie = Ie('v', topleft, botleft)
-        self.bie = Ie('h', botleft, botright)
-        self.rie = Ie('v', topright, botright)
+        self.tie = Ie('h', topleft, topright, is_outer=True)
+        self.lie = Ie('v', topleft, botleft, is_outer=True)
+        self.bie = Ie('h', botleft, botright, is_outer=True)
+        self.rie = Ie('v', topright, botright, is_outer=True)
         self.ies += [self.tie, self.lie, self.bie, self.rie]
         self.process_layout(layout, self.tie.hes[0].first_ishe, self.lie.hes[1].first_ishe, self.bie.hes[1].first_ishe, self.rie.hes[0].first_ishe)
 
