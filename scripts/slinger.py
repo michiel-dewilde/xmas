@@ -14,6 +14,21 @@ def gkern2d(kernlen, nsig):
     kern2d = np.outer(kern1d, kern1d)
     return kern2d/kern2d.sum()
 
+def copy_paste_rgba(src, dst, box=None):
+    srcnoalpha = src.copy()
+    srcnoalpha.putalpha(255)
+    dst.paste(srcnoalpha, box=box, mask=src)
+    
+def alpha_composite_rgba(src, dst, box=None):
+    dst.alpha_composite(src, dest=((0,0) if box is None else box))
+
+blotsize = 150
+blotkernel = gkern2d(blotsize, 3)
+blotkernel = np.round(blotkernel*(192/np.max(blotkernel)))
+blotdata = np.zeros((blotsize, blotsize), dtype=np.uint8)
+blotdata[:,:] = blotkernel
+blotimage = Image.fromarray(blotdata, 'L')
+
 class Slingerkern:
     def __init__(self, w, hh, wiggle, kernside, nsig, nlights, lv=None, rv=None):
         assert w > 0
@@ -85,13 +100,21 @@ bulbsize = 3 * stick
 knottobulb = stick + 2/3 * bulbsize
 lightspacing = 50
 
-bulb_unlit_rgb = Image.open(os.path.join('slinger', 'bulb-unlit-rgb.png'))
-bulb_unlit_a = Image.open(os.path.join('slinger', 'bulb-unlit-a.png'))
+slinger_data = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'slinger_data')
+bulb_unlit_rgb = Image.open(os.path.join(slinger_data, 'bulb-unlit-rgb.png'))
+bulb_unlit_a = Image.open(os.path.join(slinger_data, 'bulb-unlit-a.png'))
 bulb_unlit = Image.new("RGBA", bulb_unlit_rgb.size, (0, 0, 0, 0))
 bulb_unlit.paste(bulb_unlit_rgb)
 bulb_unlit.putalpha(bulb_unlit_a)
+bulb_lightonly = Image.open(os.path.join(slinger_data, 'bulb-lightonly.png'))
+
+bulbsrc_scale = 0.2
+bulbsrc_new_size = (round(bulbsrc_scale*bulb_unlit.size[0]), round(bulbsrc_scale*bulb_unlit.size[1]))
+bulb_unlit = bulb_unlit.resize(bulbsrc_new_size)
+bulb_lightonly = bulb_lightonly.resize(bulbsrc_new_size)
+
 bulbratio = bulbsize / (bulb_unlit.size[1] / 2)
-bulb_lightonly = Image.open(os.path.join('slinger', 'bulb-lightonly.png'))
+slinger_core_pen = aggdraw.Pen(255, 4.0, linecap=2)
 
 class Light:
     def __init__(self):
@@ -102,6 +125,16 @@ class Light:
         self.bulbrotation = None
         self.stickend = None
         self.bulbcenter = None
+    def draw_highlight(self, hiliteimg, color):
+        coloredblotimg = Image.new("RGBA", blotimage.size, color)
+        coloredblotimg.putalpha(blotimage)
+        hiliteimg.paste(coloredblotimg, (round(light.bulbcenter[0]-blotsize/2),round(light.bulbcenter[1]-blotsize/2)), coloredblotimg)
+    def draw_bulb(self, bulbsimg, color):
+        bulb = bulb_unlit.copy()
+        bulb.paste(color, mask=bulb_lightonly)
+        rbulb = bulb.rotate(light.bulbrotation, expand=True)
+        rsbulb = rbulb.resize((round(rbulb.size[0]*bulbratio), round(rbulb.size[1]*bulbratio)))
+        copy_paste_rgba(rsbulb, bulbsimg, (round(light.stickend[0]-rsbulb.size[0]/2), round(light.stickend[1]-rsbulb.size[1]/2)))
 
 # idealEnd should be exactly right of or exactly below idealBegin
 class Slinger:
@@ -140,21 +173,16 @@ class Slinger:
             light.stickend = (light.knot[0]+stick*dirvec[0], light.knot[1]+stick*dirvec[1])
             light.bulbcenter = (light.knot[0]+knottobulb*dirvec[0], light.knot[1]+knottobulb*dirvec[1])
             self.lights.append(light)
-
-def copy_paste_rgba(src, dst, box=None):
-    srcnoalpha = src.copy()
-    srcnoalpha.putalpha(255)
-    dst.paste(srcnoalpha, box=box, mask=src)
-    
-def alpha_composite_rgba(src, dst, box=None):
-    dst.alpha_composite(src, dest=((0,0) if box is None else box))
-
-blotsize = 150
-blotkernel = gkern2d(blotsize, 3)
-blotkernel = np.round(blotkernel*(192/np.max(blotkernel)))
-blotdata = np.zeros((blotsize, blotsize), dtype=np.uint8)
-blotdata[:,:] = blotkernel
-blotimage = Image.fromarray(blotdata, 'L')
+    def draw_core(self, canvas):
+        path = aggdraw.Path()
+        for i in range(len(self.traject)):
+            (path.moveto if i == 0 else path.lineto)(self.traject[i][0], self.traject[i][1])
+        canvas.path(path, slinger_core_pen)
+        for light in self.lights:
+            path = aggdraw.Path()
+            path.moveto(light.knot[0], light.knot[1])
+            path.lineto(light.bulbcenter[0], light.bulbcenter[1])
+            canvas.path(path, slinger_core_pen)
 
 slingers = []
 
@@ -179,34 +207,13 @@ slingerimg = Image.new("L", imgsize, 0)
 canvas = aggdraw.Draw(slingerimg)
 bulbsimg = Image.new("RGBA", imgsize, (0, 0, 0, 0))
 
-pen = aggdraw.Pen(255, 4.0)
-
 for slinger in slingers:
-    path = aggdraw.Path()
-    for i in range(len(slinger.traject)):
-        (path.moveto if i == 0 else path.lineto)(slinger.traject[i][0], slinger.traject[i][1])
-    canvas.path(path, pen)
+    slinger.draw_core(canvas)
     for light in slinger.lights:
         color = tuple(round(255 * i) for i in colorsys.hsv_to_rgb(random.random(), 1.0, 1.0))
-        color = 'gold' if light.beat == 0 or light.beat == 1 else 'silver'
-    
-        # blots
-        coloredblotimg = Image.new("RGBA", blotimage.size, color)
-        coloredblotimg.putalpha(blotimage)
-        hiliteimg.paste(coloredblotimg, (round(light.bulbcenter[0]-blotsize/2),round(light.bulbcenter[1]-blotsize/2)), coloredblotimg)
-        
-        # sticks
-        path = aggdraw.Path()
-        path.moveto(light.knot[0], light.knot[1])
-        path.lineto(light.bulbcenter[0], light.bulbcenter[1])
-        canvas.path(path, pen)
-        
-        # bulbs
-        bulb = bulb_unlit.copy()
-        bulb.paste(color, mask=bulb_lightonly)
-        rbulb = bulb.rotate(light.bulbrotation, expand=True)
-        rsbulb = rbulb.resize((round(rbulb.size[0]*bulbratio), round(rbulb.size[1]*bulbratio)))
-        copy_paste_rgba(rsbulb, bulbsimg, (round(light.stickend[0]-rsbulb.size[0]/2), round(light.stickend[1]-rsbulb.size[1]/2)))
+        #color = 'gold' if light.beat == 0 or light.beat == 1 else 'silver'
+        light.draw_highlight(hiliteimg, color)
+        light.draw_bulb(bulbsimg, color)
 
 canvas.flush()
 
@@ -215,13 +222,5 @@ blendedimg.paste("darkgreen", mask=slingerimg)
 copy_paste_rgba(bulbsimg, blendedimg)
 
 resultimg = Image.new("RGBA", imgsize, "black")
-copy_paste_rgba(blendedimg, resultimg)
-resultimg.show()
-
-resultimg = Image.new("RGBA", imgsize, "white")
-copy_paste_rgba(blendedimg, resultimg)
-resultimg.show()
-
-resultimg = Image.new("RGBA", imgsize, "grey")
 copy_paste_rgba(blendedimg, resultimg)
 resultimg.show()
