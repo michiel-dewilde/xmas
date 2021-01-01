@@ -52,11 +52,11 @@
   <image
      sodipodi:absref="C:\kd\xmas\data\avg\cl2-fienc.png"
      xlink:href="../avg/cl2-fienc.png"
-     height="640"
-     width="352"
-     x="0"
+     id="image4"
      y="0"
-     id="image4" />
+     x="0"
+     width="352"
+     height="640" />
   <rect
      fill="none"
      height="640"
@@ -68,11 +68,11 @@
      y="0" />
   <rect
      fill="none"
-     height="640"
+     height="584.62939"
      id="kbox"
-     stroke="rgb(0%,100%,0%)"
+     stroke="#00ff00"
      stroke-width="3"
-     width="352"
+     width="325.37958"
      x="0"
      y="0" />
   <rect
@@ -81,8 +81,8 @@
      id="mbox"
      stroke="#ffff00"
      stroke-width="3"
-     width="352.00003"
-     x="1.7812855e-06"
+     width="325.37958"
+     x="1.6465734e-06"
      y="0" />
   <rect
      fill="none"

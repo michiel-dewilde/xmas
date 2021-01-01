@@ -35,8 +35,8 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1920"
-     inkscape:window-height="1017"
+     inkscape:window-width="3840"
+     inkscape:window-height="1537"
      id="namedview12"
      showgrid="false"
      inkscape:zoom="0.8140625"
@@ -52,11 +52,11 @@
   <image
      sodipodi:absref="C:\kd\xmas\data\avg\horn-nathalie.png"
      xlink:href="../avg/horn-nathalie.png"
-     height="720"
-     width="1280"
-     x="0"
+     id="image4"
      y="0"
-     id="image4" />
+     x="0"
+     width="1280"
+     height="720" />
   <rect
      fill="none"
      height="720"
@@ -72,8 +72,8 @@
      id="kbox"
      stroke="#00ff00"
      stroke-width="7"
-     width="1143.6469"
-     x="2.8224158e-06"
+     width="1280"
+     x="3.1589229e-06"
      y="121.61228" />
   <rect
      fill="none"

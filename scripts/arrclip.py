@@ -14,7 +14,7 @@ from . import lightchoreo
 from .arrparse import get_arr_layout
 from .common import *
 from .cropsize import Cropdata
-from .howbig import Howbig
+from .howbig import Howbig, size
 from .lightchoreo import choreo, framerate, maxtime, maxframe
 from .partitioning import Partitioning
 from .sheets import minputs
@@ -82,9 +82,6 @@ class Rotating_color_tile:
 
 def make_arrclip(akey, whichbox):
     weights = {}
-    size = (1920//2, 1080//2)
-    #size = (1920, 1080)
-    #size = (2*1920, 2*1080)
     for mkey, minput in minputs.items():
         weights[mkey] = minput.weight
     layout = get_arr_layout(akey)

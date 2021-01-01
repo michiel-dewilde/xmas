@@ -40,10 +40,36 @@ class Cropdata:
         scene_cx = scene.x + scene.w/2
         scene_cy = scene.y + scene.h/2
         ascale = ascene_w / inset.w
-        l = max(scene_cx/2 - ascene_w/2 - ascale * inset.pmin[0], 0)
-        t = max(scene_cy/2 - ascene_h/2 - ascale * inset.pmin[1], 0)
-        r = min(scene_cx/2 + ascene_w/2 + ascale * (dst[0] - inset.pmax[0]), src[0])
-        b = min(scene_cy/2 + ascene_h/2 + ascale * (dst[1] - inset.pmax[1]), src[1])
+
+        il = scene_cx/2 - ascene_w/2
+        it = scene_cy/2 - ascene_h/2
+        ir = scene_cx/2 + ascene_w/2
+        ib = scene_cy/2 + ascene_h/2
+
+        if ascene_w > src[0]:
+            il = 0
+            ir = src[0]
+        elif il < 0:
+            il = 0
+            ir = ascene_w
+        elif ir > src[0]:
+            ir = src[0]
+            il = ir - ascene_w
+
+        if ascene_h > src[1]:
+            it = 0
+            ib = src[1]
+        elif it < 0:
+            it = 0
+            ib = ascene_h
+        elif ib > src[1]:
+            ib = src[1]
+            it = ib - ascene_h
+
+        l = max(il - ascale * inset.pmin[0], 0)
+        t = max(it - ascale * inset.pmin[1], 0)
+        r = min(ir + ascale * (dst[0] - inset.pmax[0]), src[0])
+        b = min(ib + ascale * (dst[1] - inset.pmax[1]), src[1])
         iscene_w, iscene_h = wh_inside(media_wh = (r - l, b - t), aspect_wh = (dst[0], dst[1]))
         iscale = iscene_w / dst[0]
 

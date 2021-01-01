@@ -12,6 +12,10 @@ gbulb_unlit.paste(gbulb_unlit_rgb)
 gbulb_unlit.putalpha(gbulb_unlit_a)
 gbulb_lightonly = Image.open(os.path.join(slinger_data, 'bulb-lightonly.png'))
 
+size = (1920//2, 1080//2)
+#size = (1920, 1080)
+#size = (2*1920, 2*1080)
+
 class Howbig:
     def __init__(self, size, weight):
         self.size = size

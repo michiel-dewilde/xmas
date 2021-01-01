@@ -22,9 +22,9 @@ def get_translation(node):
     if 'transform' not in node.attrib or not node.attrib['transform']:
         return (0,0)
     else:
-        m = re.match(r'^[ ]*translate\([ ]*([-0-9.eE]+)[ ]*,[ ]*([-0-9.eE]+)[ ]*\)[ ]*$', node.attrib['transform'])
-        assert m
-        return (float(m.group(1)), float(m.group(2)))
+        m = re.match(r'^[ ]*translate\([ ]*([-0-9.eE]+)[ ]*(,[ ]*([-0-9.eE]+)[ ]*)?\)[ ]*$', node.attrib['transform'])
+        assert m, node.attrib['transform']
+        return (float(m.group(1)), float(m.group(3)) if m.group(2) else 0.)
 
 class Cluster:
     def __init__(self, indices = [], bbox = Bbox()):
