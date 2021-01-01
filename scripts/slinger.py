@@ -128,13 +128,13 @@ class Light:
     def draw_highlight(self, hiliteimg, color):
         coloredblotimg = Image.new("RGBA", blotimage.size, color)
         coloredblotimg.putalpha(blotimage)
-        hiliteimg.paste(coloredblotimg, (round(light.bulbcenter[0]-blotsize/2),round(light.bulbcenter[1]-blotsize/2)), coloredblotimg)
+        hiliteimg.paste(coloredblotimg, (round(self.bulbcenter[0]-blotsize/2),round(self.bulbcenter[1]-blotsize/2)), coloredblotimg)
     def draw_bulb(self, bulbsimg, color):
         bulb = bulb_unlit.copy()
         bulb.paste(color, mask=bulb_lightonly)
-        rbulb = bulb.rotate(light.bulbrotation, expand=True)
+        rbulb = bulb.rotate(self.bulbrotation, expand=True)
         rsbulb = rbulb.resize((round(rbulb.size[0]*bulbratio), round(rbulb.size[1]*bulbratio)))
-        copy_paste_rgba(rsbulb, bulbsimg, (round(light.stickend[0]-rsbulb.size[0]/2), round(light.stickend[1]-rsbulb.size[1]/2)))
+        copy_paste_rgba(rsbulb, bulbsimg, (round(self.stickend[0]-rsbulb.size[0]/2), round(self.stickend[1]-rsbulb.size[1]/2)))
 
 # idealEnd should be exactly right of or exactly below idealBegin
 class Slinger:
@@ -183,44 +183,3 @@ class Slinger:
             path.moveto(light.knot[0], light.knot[1])
             path.lineto(light.bulbcenter[0], light.bulbcenter[1])
             canvas.path(path, slinger_core_pen)
-
-slingers = []
-
-iTopleft = (100, 100)
-aTopleft = (iTopleft[0]+random.randrange(-hh,hh+1), iTopleft[1]+random.randrange(-hh,hh+1))
-iTopright = (600, 100)
-aTopright = (iTopright[0]+random.randrange(-hh,hh+1), iTopright[1]+random.randrange(-hh,hh+1))
-iBotleft = (100, 600)
-aBotleft = (iBotleft[0]+random.randrange(-hh,hh+1), iBotleft[1]+random.randrange(-hh,hh+1))
-iBotright = (600, 600)
-aBotright = (iBotright[0]+random.randrange(-hh,hh+1), iBotright[1]+random.randrange(-hh,hh+1))
-
-slingers.append(Slinger(iTopleft, iTopright, aTopleft, aTopright))
-slingers.append(Slinger(iBotleft, iBotright, aBotleft, aBotright))
-slingers.append(Slinger(iTopleft, iBotleft, aTopleft, aBotleft))
-slingers.append(Slinger(iTopright, iBotright, aTopright, aBotright))
-
-imgsize = (700, 700)
-
-hiliteimg = Image.new("RGBA", imgsize, (255, 255, 255, 0))
-slingerimg = Image.new("L", imgsize, 0)
-canvas = aggdraw.Draw(slingerimg)
-bulbsimg = Image.new("RGBA", imgsize, (0, 0, 0, 0))
-
-for slinger in slingers:
-    slinger.draw_core(canvas)
-    for light in slinger.lights:
-        color = tuple(round(255 * i) for i in colorsys.hsv_to_rgb(random.random(), 1.0, 1.0))
-        #color = 'gold' if light.beat == 0 or light.beat == 1 else 'silver'
-        light.draw_highlight(hiliteimg, color)
-        light.draw_bulb(bulbsimg, color)
-
-canvas.flush()
-
-blendedimg = hiliteimg.copy()
-blendedimg.paste("darkgreen", mask=slingerimg)
-copy_paste_rgba(bulbsimg, blendedimg)
-
-resultimg = Image.new("RGBA", imgsize, "black")
-copy_paste_rgba(blendedimg, resultimg)
-resultimg.show()
