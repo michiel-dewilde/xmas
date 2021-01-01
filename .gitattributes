@@ -1,0 +1,50 @@
+*               -text
+
+*.bat           text eol=crlf
+*.css           text
+*.html          text
+*.md            text
+*.py            text diff=python
+
+.gitattributes  text
+.gitignore      text
+.lfsconfig      text
+
+*.AUP           -text filter=lfs diff=lfs merge=lfs
+*.aup           -text filter=lfs diff=lfs merge=lfs
+*.AU            -text filter=lfs diff=lfs merge=lfs
+*.au            -text filter=lfs diff=lfs merge=lfs
+*.EOT           -text filter=lfs diff=lfs merge=lfs
+*.eot           -text filter=lfs diff=lfs merge=lfs
+*.EXE           -text filter=lfs diff=lfs merge=lfs
+*.exe           -text filter=lfs diff=lfs merge=lfs
+*.jpg           -text filter=lfs diff=lfs merge=lfs
+*.JPG           -text filter=lfs diff=lfs merge=lfs
+*.MOV           -text filter=lfs diff=lfs merge=lfs
+*.mov           -text filter=lfs diff=lfs merge=lfs
+*.MP3           -text filter=lfs diff=lfs merge=lfs
+*.mp3           -text filter=lfs diff=lfs merge=lfs
+*.MP4           -text filter=lfs diff=lfs merge=lfs
+*.mp4           -text filter=lfs diff=lfs merge=lfs
+*.OPUS          -text filter=lfs diff=lfs merge=lfs
+*.opus          -text filter=lfs diff=lfs merge=lfs
+*.PDF           -text filter=lfs diff=lfs merge=lfs
+*.pdf           -text filter=lfs diff=lfs merge=lfs
+*.PNG           -text filter=lfs diff=lfs merge=lfs
+*.png           -text filter=lfs diff=lfs merge=lfs
+*.PSD           -text filter=lfs diff=lfs merge=lfs
+*.psd           -text filter=lfs diff=lfs merge=lfs
+*.TTF           -text filter=lfs diff=lfs merge=lfs
+*.ttf           -text filter=lfs diff=lfs merge=lfs
+*.XSLX          -text filter=lfs diff=lfs merge=lfs
+*.xslx          -text filter=lfs diff=lfs merge=lfs
+*.WAV           -text filter=lfs diff=lfs merge=lfs
+*.wav           -text filter=lfs diff=lfs merge=lfs
+*.WEBM          -text filter=lfs diff=lfs merge=lfs
+*.webm          -text filter=lfs diff=lfs merge=lfs
+*.WOFF          -text filter=lfs diff=lfs merge=lfs
+*.woff          -text filter=lfs diff=lfs merge=lfs
+*.ZIP           -text filter=lfs diff=lfs merge=lfs
+*.zip           -text filter=lfs diff=lfs merge=lfs
+
+git-lfs-webdav-* -text -filter -diff -merge

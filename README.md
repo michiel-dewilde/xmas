@@ -1,0 +1,1 @@
+Uses https://github.com/mpotthoff/git-lfs-webdav
