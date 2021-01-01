@@ -184,10 +184,10 @@ add_const(2, 47, 48, green)
 add_change(2, 48, green, 49, black)
 
 for m in range(45,49):
-    c = rand_bright_color_array(maxlights)
+    c = rand_bright_color_array(maxlights)/2
     add_array_const(0, m, m+0.25, c[0::4])
     add_array_const(3, m+0.25, m+0.5, c[3::4])
-    c = rand_bright_color_array(maxlights)
+    c = rand_bright_color_array(maxlights)/2
     add_array_const(0, m+0.5, m+0.75, c[0::4])
     add_array_const(3, m+0.75, m+1, c[3::4])
 
@@ -203,10 +203,10 @@ add_const(2, 51, 52, green)
 add_change(2, 52, green, 53, black)
 
 for m in range(49,53):
-    c = rand_bright_color_array(maxlights)
+    c = rand_bright_color_array(maxlights)/2
     add_array_const(0, m, m+0.25, c[0::4])
     add_array_const(3, m+0.25, m+0.5, c[3::4])
-    c = rand_bright_color_array(maxlights)
+    c = rand_bright_color_array(maxlights)/2
     add_array_const(0, m+0.5, m+0.75, c[0::4])
     add_array_const(3, m+0.75, m+1, c[3::4])
 
@@ -220,10 +220,10 @@ add_change(1, 55, darkblue, 57, yellow)
 add_change(2, 55, darkblue, 57, yellow)
 
 for m in range(53,57):
-    c = rand_bright_color_array(maxlights)
+    c = rand_bright_color_array(maxlights)/2
     add_array_const(0, m, m+0.25, c[0::4])
     add_array_const(3, m+0.25, m+0.5, c[3::4])
-    c = rand_bright_color_array(maxlights)
+    c = rand_bright_color_array(maxlights)/2
     add_array_const(0, m+0.5, m+0.75, c[0::4])
     add_array_const(3, m+0.75, m+1, c[3::4])
 
@@ -237,10 +237,17 @@ add_all_const(57+6/8, 57+8/8, yellow)
 
 add_all_const(58, 58+5/12, red)
 add_all_const(58+5/12, 58+6/8, green)
-add_all_const(58+6/8, 58+8/8, yellow)
+add_const(0, 58+6/8, 58+8/8, yellow)
+add_const(1, 58+6/8, 58+8/8, yellow)
+add_const(2, 58+6/8, 59+1/4, yellow)
+add_const(3, 58+6/8, 59+1/4, yellow)
 
-add_all_const(59, 59+4/8, red)
-add_all_const(59+4/8, 59+11/12, green)
+add_const(0, 59, 59+4/8, red)
+add_const(1, 59, 59+4/8, red)
+add_const(2, 59+1/4, 59+11/12, red)
+add_const(3, 59+1/4, 59+11/12, red)
+add_const(0, 59+4/8, 59+11/12, green)
+add_const(1, 59+4/8, 59+11/12, green)
 add_all_const(59+11/12, 59+8/8, yellow)
 
 add_all_array_change(60, np.broadcast_to(yellow[np.newaxis,:], (maxlights, 3)), 61, np.zeros((maxlights, 3)))

@@ -72,7 +72,8 @@ def get_tileclip(tile, id, whichbox):
 
 def make_arrclip(akey, whichbox):
     weights = {}
-    size = (1920, 1080)
+    size = (1920//2, 1080//2)
+    #size = (2*1920, 2*1080)
     for mkey, minput in minputs.items():
         weights[mkey] = minput.weight
     layout = get_arr_layout(akey)
@@ -84,6 +85,8 @@ def make_arrclip(akey, whichbox):
         clip = get_tileclip(tile, id, whichbox)
         minput = minputs[id]
         delay = minput.delay
+        if minput.shortend:
+            clip = clip.with_duration(minput.shortend-delay)
         if delay < 0:
             clip = clip.subclip(-delay)
         else:
@@ -95,19 +98,18 @@ def make_arrclip(akey, whichbox):
                 clip = get_tileclip(tile, id, whichbox)
                 minput = minputs[id]
                 delay = minput.delay
-                timpstart = m2t(16)
+                timpstart = m2t(13)
                 timpend = m2t(20)
-                timpcf = m2t(16.5)-m2t(16)
-                clip = clip.subclip(timpstart-delay, timpend-delay).crossfadein(timpcf).crossfadeout(timpcf).with_start(timpstart)
+                clip = clip.subclip(timpstart-delay, timpend-delay).with_start(timpstart)
                 clips.append(clip)
             if 'perc2' in tile.id:
-                id = 'perc2-vj1'
+                id = 'perc2-vj1-ontop'
                 clip = get_tileclip(tile, id, whichbox)
                 minput = minputs[id]
                 delay = minput.delay
-                vjstart = m2t(18)
+                vjstart = m2t(18.5)
                 vjend = m2t(25)
-                clip = clip.subclip(vjstart-delay, vjend-delay).crossfadein(m2t(18.5)-m2t(18)).with_start(vjstart)
+                clip = clip.subclip(vjstart-delay, vjend-delay).with_start(vjstart)
                 clips.append(clip)
 
     comp = moviepy.editor.CompositeVideoClip(clips=clips, size=size)

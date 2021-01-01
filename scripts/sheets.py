@@ -7,6 +7,7 @@ class Minput:
         self.rotation = None
         self.mirrored = None
         self.weight = None
+        self.shortend = None
 
 class Tempo:
     def __init__(self):
@@ -26,6 +27,8 @@ class Sheets:
                     minput.mirrored = bool(value)
                 elif key == 'weight':
                     minput.weight = float(value)
+                elif key == 'shortend' and value:
+                    self.shortend = float(value)
                 else:
                     setattr(minput, key, value)
             minput.key = os.path.splitext(minput.filename)[0]

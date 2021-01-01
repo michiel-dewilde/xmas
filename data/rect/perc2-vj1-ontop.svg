@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   height="100%"
+   version="1.2"
+   viewBox="0 0 1920 3240"
+   width="100%"
+   id="svg10"
+   sodipodi:docname="perc2-vj1-ontop.svg"
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)">
+  <metadata
+     id="metadata14">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     id="namedview12"
+     showgrid="false"
+     inkscape:zoom="0.26234568"
+     inkscape:cx="960"
+     inkscape:cy="1309.4726"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg10" />
+  <defs
+     id="defs2" />
+  <image
+     sodipodi:absref="C:\kd\xmas\data\avg\perc2-vj1-ontop.png"
+     xlink:href="../avg/perc2-vj1-ontop.png"
+     id="image4"
+     y="0"
+     x="0"
+     width="1920"
+     height="3240" />
+  <rect
+     fill="none"
+     height="2160"
+     id="cbox"
+     stroke="#0000ff"
+     stroke-width="17"
+     width="1920"
+     x="0"
+     y="0" />
+  <rect
+     fill="none"
+     height="1080"
+     id="kbox"
+     stroke="#00ff00"
+     stroke-width="17"
+     width="1920"
+     x="0"
+     y="1080" />
+  <rect
+     fill="none"
+     height="808.09406"
+     id="mbox"
+     stroke="#ffff00"
+     stroke-width="17"
+     width="1363.4823"
+     x="278.25882"
+     y="1231.2" />
+  <rect
+     fill="none"
+     height="808.09387"
+     id="hbox"
+     stroke="#ff0000"
+     stroke-width="17"
+     width="1363.4823"
+     x="278.25882"
+     y="1231.2001" />
+</svg>
