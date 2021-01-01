@@ -6,7 +6,7 @@ import random
 from os.path import splitext
 
 import aggdraw
-import moviepy.editor
+import moviepy.editor, moviepy.video.VideoClip, moviepy.video.fx
 import numpy as np
 from PIL import Image, ImageDraw, ImageOps
 
