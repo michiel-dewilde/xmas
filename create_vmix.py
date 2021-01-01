@@ -13,10 +13,13 @@ from scripts.fastcomposite import FastCompositeVideoClip
 def frameround(t):
     return round(t*framerate)/framerate
 
-def get_arrclip(akey, start):
+def get_arrclip(akey, start, end = None):
     arrdata = arrdatas[akey]
-    clip = moviepy.editor.VideoFileClip(os.path.join('half', f'{akey}.mp4')).subclip(start - (timeoffset + arrdata.start)).with_start(start)
-    return clip
+    clip = moviepy.editor.VideoFileClip(os.path.join('half', f'{akey}.mp4'))
+    clip = clip.subclip(start - (timeoffset + arrdata.start))
+    if end:
+        clip = clip.with_duration(end - start)
+    return clip.with_start(start)
 
 clips = []
 
@@ -33,6 +36,10 @@ clips.append(clip.with_duration(m2t(6)-tdelay).with_start(timeoffset + tdelay).c
 clips.append(get_arrclip('2', timeoffset + m2t(4) + 1).crossfadein(1))
 clips.append(get_arrclip('3', timeoffset + m2t(9)))
 clips.append(get_arrclip('11', timeoffset + m2t(12.75)))
+clips.append(get_arrclip('a', timeoffset + m2t(79), timeoffset + m2t(84)))
+clips.append(get_arrclip('b', timeoffset + m2t(83), timeoffset + m2t(88)))
+clips.append(get_arrclip('c', timeoffset + m2t(87), timeoffset + m2t(92)))
+clips.append(get_arrclip('d', timeoffset + m2t(91), timeoffset + m2t(95)))
 
 #vmix = moviepy.editor.CompositeVideoClip(clips=clips, size=size).with_duration(totalduration).fadeout(1)
 vmix = FastCompositeVideoClip(clips=clips, size=size).with_duration(totalduration).fadeout(1)
