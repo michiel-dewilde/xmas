@@ -34,7 +34,7 @@ def readKeyRects():
         if ext != '.svg':
             continue
         rects = Rects()
-        root = ET.parse(os.path.join('data', 'rect', filename))
+        root = ET.parse(os.path.join('data', 'rect', filename)).getroot()
         for e in root.iter():
             if e.tag in (rectTag, imageTag):
                 attrname = 'bbox' if e.tag == imageTag else e.attrib['id']
