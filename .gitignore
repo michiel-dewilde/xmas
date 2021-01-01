@@ -9,6 +9,7 @@
 
 *.pyc
 __pycache__
+*.rpp-bak
 /.venv
 /.vscode
 

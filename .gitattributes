@@ -36,6 +36,7 @@
 *.png           -text filter=lfs diff=lfs merge=lfs
 *.PSD           -text filter=lfs diff=lfs merge=lfs
 *.psd           -text filter=lfs diff=lfs merge=lfs
+*.reapeaks      -text filter=lfs diff=lfs merge=lfs
 *.TTF           -text filter=lfs diff=lfs merge=lfs
 *.ttf           -text filter=lfs diff=lfs merge=lfs
 *.XSLX          -text filter=lfs diff=lfs merge=lfs
