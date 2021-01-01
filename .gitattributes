@@ -10,8 +10,6 @@
 .gitignore      text
 .lfsconfig      text
 
-*.AUP           -text filter=lfs diff=lfs merge=lfs
-*.aup           -text filter=lfs diff=lfs merge=lfs
 *.AU            -text filter=lfs diff=lfs merge=lfs
 *.au            -text filter=lfs diff=lfs merge=lfs
 *.EOT           -text filter=lfs diff=lfs merge=lfs
