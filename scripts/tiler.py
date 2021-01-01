@@ -94,9 +94,9 @@ class Tiling:
             weights = [self.calc_w(item) for item in value]
             cweights = np.cumsum(weights)
             xs = self.round(left + cweights[:-1]*((right - left) / cweights[-1]))
-            ptops = [(x, top) for x in xs]
+            ptops = [(int(x), top) for x in xs]
             ntishes = tishe.split(ptops)
-            pbots = [(x, bot) for x in xs]
+            pbots = [(int(x), bot) for x in xs]
             nbishes = bishe.split(pbots)
             ies = [Ie('v', ptop, pbot) for ptop, pbot in zip(ptops, pbots)]
             self.ies += ies
@@ -109,9 +109,9 @@ class Tiling:
             weights = [self.calc_w(item) for item in value]
             cweights = np.cumsum(weights)
             ys = self.round(top + cweights[:-1]*((bot - top) / cweights[-1]))
-            plefts = [(left, y) for y in ys]
+            plefts = [(left, int(y)) for y in ys]
             nlishes = lishe.split(plefts)
-            prights = [(right, y) for y in ys]
+            prights = [(right, int(y)) for y in ys]
             nrishes = rishe.split(prights)
             ies = [Ie('h', pleft, pright) for pleft, pright in zip(plefts, prights)]
             self.ies += ies
@@ -129,12 +129,12 @@ class Tiling:
             w = math.sqrt(a*W*H*g/G)
             h = w/a
             x0 = left
-            x1 = self.round(left + (W-w)/2)
-            x2 = self.round(left + (W+w)/2)
+            x1 = int(self.round(left + (W-w)/2))
+            x2 = int(self.round(left + (W+w)/2))
             x3 = right
             y0 = top
-            y1 = self.round(top + (H-h)/2)
-            y2 = self.round(top + (H+h)/2)
+            y1 = int(self.round(top + (H-h)/2))
+            y2 = int(self.round(top + (H+h)/2))
             y3 = bot
             if ('key' == 'cw'):
                 toishes = tishe.split([(x2, y0)])
@@ -143,55 +143,55 @@ class Tiling:
                 loishes = lishe.split([(x0, y1)])
 
                 tiie = Ie('h', (x0, y1), (x2, y1))
-                biishe = tiie.hes[1]
-                tcishes = tiie.hes[0].split([x1, y1])                
+                biishe = tiie.hes[1].first_ishe
+                tcishes = tiie.hes[0].first_ishe.split([(x1, y1)])                
 
                 riie = Ie('v', (x2, y0), (x2, y2))
-                liishe = riie.hes[1]
-                rcishes = riie.hes[0].split([x2, y1])                
+                liishe = riie.hes[1].first_ishe
+                rcishes = riie.hes[0].first_ishe.split([(x2, y1)])                
 
                 biie = Ie('h', (x1, y2), (x3, y2))
-                tiishe = biie.hes[0]
-                bcishes = biie.hes[1].split([x2, y2])                
+                tiishe = biie.hes[0].first_ishe
+                bcishes = biie.hes[1].first_ishe.split([(x2, y2)])                
                 
-                liie = Ie('v', (x1, y1), (x3, y1))
-                riishe = liie.hes[0]
-                lcishes = liie.hes[1].split([x2, y1])                
+                liie = Ie('v', (x1, y1), (x1, y3))
+                riishe = liie.hes[0].first_ishe
+                lcishes = liie.hes[1].first_ishe.split([(x2, y1)])                
 
                 self.ies += [tiie, riie, biie, liie]
-                self.process_layout(value['c'],  tcishes[1], lcishes[0], bcishes[0], rcishes[1])
-                self.process_layout(value['d'][0],  toishes[0], loishes[0], biishe, rcishes[0])
-                self.process_layout(value['d'][1],  toishes[1], liishe, bcishes[1], roishes[0])
-                self.process_layout(value['d'][2],  tiishe, lcishes[1], boishes[1], roishes[1])
-                self.process_layout(value['d'][3],  tcishes[0], loishes[1], boishes[0], riishe)
+                self.process_layout(value['c'], tcishes[1], lcishes[0], bcishes[0], rcishes[1])
+                self.process_layout(value['d'][0], toishes[0], loishes[0], biishe, rcishes[0])
+                self.process_layout(value['d'][1], toishes[1], liishe, bcishes[1], roishes[0])
+                self.process_layout(value['d'][2], tiishe, lcishes[1], boishes[1], roishes[1])
+                self.process_layout(value['d'][3], tcishes[0], loishes[1], boishes[0], riishe)
             else:
                 toishes = tishe.split([(x1, y0)])
                 loishes = lishe.split([(x0, y2)])
                 boishes = bishe.split([(x2, y3)])
                 roishes = rishe.split([(x3, y1)])
 
-                liie = Ie('v', (x0, y1), (x2, y1))
-                riishe = liie.hes[0]
-                lcishes = liie.hes[1].split([x1, y1])
+                liie = Ie('v', (x1, y0), (x1, y2))
+                riishe = liie.hes[0].first_ishe
+                lcishes = liie.hes[1].first_ishe.split([(x1, y1)])
 
                 biie = Ie('h', (x0, y2), (x2, y2))
-                tiishe = biie.hes[0]
-                bcishes = biie.hes[1].split([x1, y2])                
+                tiishe = biie.hes[0].first_ishe
+                bcishes = biie.hes[1].first_ishe.split([(x1, y2)])                
                 
                 riie = Ie('v', (x2, y1), (x2, y3))
-                liishe = riie.hes[1]
-                rcishes = riie.hes[0].split([x2, y2])                
+                liishe = riie.hes[1].first_ishe
+                rcishes = riie.hes[0].first_ishe.split([(x2, y2)])                
 
                 tiie = Ie('h', (x1, y1), (x3, y1))
-                biishe = tiie.hes[1]
-                tcishes = tiie.hes[0].split([x2, y1])                
+                biishe = tiie.hes[1].first_ishe
+                tcishes = tiie.hes[0].first_ishe.split([(x2, y1)])                
 
                 self.ies += [liie, biie, riie, tiie]
-                self.process_layout(value['c'],  tcishes[0], lcishes[1], bcishes[1], rcishes[0])
-                self.process_layout(value['d'][0],  toishes[0], loishes[0], bcishes[0], riishe)
-                self.process_layout(value['d'][1],  tiishe, loishes[1], boishes[0], rcishes[1])
-                self.process_layout(value['d'][2],  tcishes[1], liishe, boishes[1], roishes[1])
-                self.process_layout(value['d'][3],  toishes[1], lcishes[0], biishe, roishes[0])
+                self.process_layout(value['c'], tcishes[0], lcishes[1], bcishes[1], rcishes[0])
+                self.process_layout(value['d'][0], toishes[0], loishes[0], bcishes[0], riishe)
+                self.process_layout(value['d'][1], tiishe, loishes[1], boishes[0], rcishes[1])
+                self.process_layout(value['d'][2], tcishes[1], liishe, boishes[1], roishes[1])
+                self.process_layout(value['d'][3], toishes[1], lcishes[0], biishe, roishes[0])
             return
         assert False
 
@@ -206,7 +206,7 @@ class Tiling:
         self.ire = Ie('v', topright, botright)
         self.ies += [self.ite, self.ile, self.ibe, self.ire]
         self.process_layout(layout, self.ite.hes[0].first_ishe, self.ile.hes[1].first_ishe, self.ibe.hes[1].first_ishe, self.ire.hes[0].first_ishe)
-        
+
     def __init__(self, size, layout, weights):
         self.size = size
         self.weights = weights
@@ -214,7 +214,8 @@ class Tiling:
         self.tiles = []
         self.calc_tiling(layout)
 
-tiling = Tiling(size = (1920,1080), layout = json.loads('{"h":[{"v":["a","a","a"]},{"v":["a","a"]}]}'), weights = {'a': 1.0})
+#tiling = Tiling(size = (1920,1080), layout = json.loads('{"h":[{"v":["a","a","a"]},{"v":["a","a"]}]}'), weights = {'a': 1.0})
+tiling = Tiling(size = (1920,1080), layout = json.loads('{"ccw":{"a":1,"c":"a","d":["a","a","a","a"]}}'), weights = {'a': 1.0})
 
 #from pprint import pprint
 for tile in tiling.tiles:
