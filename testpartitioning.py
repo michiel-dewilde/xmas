@@ -1,15 +1,16 @@
 import aggdraw, colorsys, json, math, random
 import numpy as np
 from PIL import Image, ImageDraw, ImageOps
-from scripts.partitioning import Partitioning, width, height
+from scripts.partitioning import Partitioning
 from scripts.common import *
 
 #layout = json.loads('{"h":[{"v":["a","a","a"]},{"v":["a","a"]}]}')
+size = (1920, 1080)
 layout = json.loads('{"h": [{"ccw":{"a":1,"c":"a","d":["a","a","a","a"]}}, {"h":[{"v":["a","a","a"]},{"v":["a","a"]}]}]}')
 weights = {'a': 1.0}
-part = Partitioning(layout=layout, weights=weights)
+part = Partitioning(size=size, layout=layout, weights=weights)
 
-imgsize = (width, height)
+imgsize = size
 
 hiliteimg = Image.new("RGBA", imgsize, (255, 255, 255, 0))
 slingerimg = Image.new("L", imgsize, 0)
@@ -24,7 +25,8 @@ for fe in part.tiling.fes:
         color = tuple(round(255 * i) for i in colorsys.hsv_to_rgb(random.random(), 1.0, 1.0))
         #color = 'gold' if light.beat == 0 or light.beat == 1 else 'silver'
         light.draw_highlight(hiliteimg, color)
-        light.draw_bulb(bulbsimg, color)
+        light.draw_bulb_u(bulbsimg)
+        light.draw_bulb_l(bulbsimg, color)
 
 canvas.flush()
 

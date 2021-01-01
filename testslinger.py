@@ -7,7 +7,9 @@ from scripts.slinger import Slinger
 from scripts.howbig import Howbig
 from scripts.common import *
 
-howbig = Howbig(weight=5)
+imgsize = (700, 700)
+
+howbig = Howbig(size=imgsize, weight=1)
 hh = howbig.hh
 
 slingers = []
@@ -27,7 +29,6 @@ slingers.append(Slinger(howbig, iBotleft, iBotright, aBotleft, aBotright))
 slingers.append(Slinger(howbig, iTopleft, iBotleft, aTopleft, aBotleft))
 slingers.append(Slinger(howbig, iTopright, iBotright, aTopright, aBotright))
 
-imgsize = (700, 700)
 
 hiliteimg = Image.new("RGBA", imgsize, (255, 255, 255, 0))
 slingerimg = Image.new("L", imgsize, 0)
@@ -40,7 +41,8 @@ for slinger in slingers:
         color = tuple(round(255 * i) for i in colorsys.hsv_to_rgb(random.random(), 1.0, 1.0))
         #color = 'gold' if light.beat == 0 or light.beat == 1 else 'silver'
         light.draw_highlight(hiliteimg, color)
-        light.draw_bulb(bulbsimg, color)
+        light.draw_bulb_u(bulbsimg)
+        light.draw_bulb_l(bulbsimg, color)
 
 canvas.flush()
 

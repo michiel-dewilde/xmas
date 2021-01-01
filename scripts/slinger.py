@@ -48,8 +48,6 @@ class Slingerkern:
         yonly = np.array([coordinate[1] for coordinate in coordinates])
         paddedy = np.pad(yonly, self.kernside, mode='reflect', reflect_type='odd')
         self.traject = np.convolve(paddedy, kernel, 'valid')
-        assert abs(self.traject[0]-self.lv) < 0.5
-        assert abs(self.traject[-1]-self.rv) < 0.5
     def calclightpos(self):
         self.lightpos = []
         n = self.nlights
@@ -80,24 +78,33 @@ class Light:
         self.bulbrotation = None
         self.stickend = None
         self.bulbcenter = None
+    def screen_cropped_point(self, point):
+        size = self.slinger.howbig.size
+        return (min(max(point[0], 0), size[0]), min(max(point[1], 0), size[1]))
     def prepare_highlight(self):
         howbig = self.slinger.howbig
         bigblot_size = (howbig.bigblot_side, howbig.bigblot_side)
         bigblot_center = (bigblot_size[0]/2, bigblot_size[1]/2)
         blot_scale = howbig.blot_scale
         smallblot_offgrid_center = (blot_scale*bigblot_center[0], blot_scale*bigblot_center[1])
-        self.smallblot_pos = (math.floor(self.bulbcenter[0] - smallblot_offgrid_center[0]), math.floor(self.bulbcenter[1] - smallblot_offgrid_center[1]))
-        smallblot_ongrid_center = (self.bulbcenter[0] - self.smallblot_pos[0], self.bulbcenter[1] - self.smallblot_pos[1])
+        smallblot_pos = (math.floor(self.bulbcenter[0] - smallblot_offgrid_center[0]), math.floor(self.bulbcenter[1] - smallblot_offgrid_center[1]))
+        smallblot_ongrid_center = (self.bulbcenter[0] - smallblot_pos[0], self.bulbcenter[1] - smallblot_pos[1])
         bigblot_ongrid_left_extra = round((smallblot_ongrid_center[0] - smallblot_offgrid_center[0]) / blot_scale)
         bigblot_ongrid_top_extra = round((smallblot_ongrid_center[1] - smallblot_offgrid_center[1]) / blot_scale)
         smallblot_ongrid_w = math.ceil((bigblot_size[0] + bigblot_ongrid_left_extra) * blot_scale)
         smallblot_ongrid_h = math.ceil((bigblot_size[1] + bigblot_ongrid_top_extra) * blot_scale)
         bigblot_ongrid_w = round(smallblot_ongrid_w / blot_scale)
         bigblot_ongrid_h = round(smallblot_ongrid_h / blot_scale)
+        self.smallblot_pos_cropped = self.screen_cropped_point(smallblot_pos)
+        smallblot_botright_cropped = self.screen_cropped_point((smallblot_pos[0] + smallblot_ongrid_w, smallblot_pos[1] + smallblot_ongrid_h))
 
         bigblot_ongrid = Image.new("L", (bigblot_ongrid_w, bigblot_ongrid_h), 0)
         bigblot_ongrid.paste(howbig.bigblot, (bigblot_ongrid_left_extra, bigblot_ongrid_top_extra))
-        self.smallblot_ongrid = bigblot_ongrid.resize((smallblot_ongrid_w, smallblot_ongrid_h))
+        smallblot_ongrid = bigblot_ongrid.resize((smallblot_ongrid_w, smallblot_ongrid_h))
+        smallblot_cropbox = (self.smallblot_pos_cropped[0]-smallblot_pos[0], self.smallblot_pos_cropped[1]-smallblot_pos[1],
+                             smallblot_botright_cropped[0]-smallblot_pos[0], smallblot_botright_cropped[1]-smallblot_pos[1])
+        self.smallblot_ongrid_cropped = smallblot_ongrid.crop(smallblot_cropbox)
+        
 
     def prepare_bulb(self):
         howbig = self.slinger.howbig
@@ -107,33 +114,39 @@ class Light:
         rbulb_center = (rbulb_size[0]/2, rbulb_size[1]/2)
         bulb_scale = howbig.bulb_scale
         rsbulb_offgrid_center = (bulb_scale*rbulb_center[0], bulb_scale*rbulb_center[1])
-        self.rsbulb_pos = (math.floor(self.stickend[0] - rsbulb_offgrid_center[0]), math.floor(self.stickend[1] - rsbulb_offgrid_center[1]))
-        rsbulb_ongrid_center = (self.stickend[0] - self.rsbulb_pos[0], self.stickend[1] - self.rsbulb_pos[1])
+        rsbulb_pos = (math.floor(self.stickend[0] - rsbulb_offgrid_center[0]), math.floor(self.stickend[1] - rsbulb_offgrid_center[1]))
+        rsbulb_ongrid_center = (self.stickend[0] - rsbulb_pos[0], self.stickend[1] - rsbulb_pos[1])
         rbulb_ongrid_left_extra = round((rsbulb_ongrid_center[0] - rsbulb_offgrid_center[0]) / bulb_scale)
         rbulb_ongrid_top_extra = round((rsbulb_ongrid_center[1] - rsbulb_offgrid_center[1]) / bulb_scale)
         rsbulb_ongrid_w = math.ceil((rbulb_size[0] + rbulb_ongrid_left_extra) * bulb_scale)
         rsbulb_ongrid_h = math.ceil((rbulb_size[1] + rbulb_ongrid_top_extra) * bulb_scale)
         rbulb_ongrid_w = round(rsbulb_ongrid_w / bulb_scale)
         rbulb_ongrid_h = round(rsbulb_ongrid_h / bulb_scale)
+        self.rsbulb_pos_cropped = self.screen_cropped_point(rsbulb_pos)
+        rsbulb_botright_cropped = self.screen_cropped_point((rsbulb_pos[0] + rsbulb_ongrid_w, rsbulb_pos[1] + rsbulb_ongrid_h))
+        rsbulb_cropbox = (self.rsbulb_pos_cropped[0]-rsbulb_pos[0], self.rsbulb_pos_cropped[1]-rsbulb_pos[1],
+                          rsbulb_botright_cropped[0]-rsbulb_pos[0], rsbulb_botright_cropped[1]-rsbulb_pos[1])
 
         rbulb_u_ongrid = Image.new("RGBA", (rbulb_ongrid_w, rbulb_ongrid_h), (0, 0, 0, 0))
         copy_paste_rgba(rbulb_u, rbulb_u_ongrid, (rbulb_ongrid_left_extra, rbulb_ongrid_top_extra))
-        self.rsbulb_u_ongrid = rbulb_u_ongrid.resize((rsbulb_ongrid_w, rsbulb_ongrid_h))
+        rsbulb_u_ongrid = rbulb_u_ongrid.resize((rsbulb_ongrid_w, rsbulb_ongrid_h))
+        self.rsbulb_u_ongrid_cropped = rsbulb_u_ongrid.crop(rsbulb_cropbox)
 
         rbulb_l_ongrid = Image.new("RGBA", (rbulb_ongrid_w, rbulb_ongrid_h), (0, 0, 0, 0))
         copy_paste_rgba(rbulb_l, rbulb_l_ongrid, (rbulb_ongrid_left_extra, rbulb_ongrid_top_extra))
-        self.rsbulb_l_ongrid = rbulb_l_ongrid.resize((rsbulb_ongrid_w, rsbulb_ongrid_h))
+        rsbulb_l_ongrid = rbulb_l_ongrid.resize((rsbulb_ongrid_w, rsbulb_ongrid_h))
+        self.rsbulb_l_ongrid_cropped = rsbulb_l_ongrid.crop(rsbulb_cropbox)
     def prepare_bitmaps(self):
         self.prepare_highlight()
         self.prepare_bulb()
     def draw_highlight(self, hiliteimg, color):
-        coloredblotimg = Image.new("RGBA", self.smallblot_ongrid.size, color)
-        coloredblotimg.putalpha(self.smallblot_ongrid)
-        hiliteimg.paste(coloredblotimg, self.smallblot_pos, coloredblotimg)
-    def draw_bulb(self, bulbsimg, color):
-        rsbulb_ongrid = self.rsbulb_u_ongrid.copy()
-        rsbulb_ongrid.paste(color, mask=self.rsbulb_l_ongrid)
-        copy_paste_rgba(rsbulb_ongrid, bulbsimg, self.rsbulb_pos)
+        coloredblotimg = Image.new("RGBA", self.smallblot_ongrid_cropped.size, color)
+        coloredblotimg.putalpha(self.smallblot_ongrid_cropped)
+        hiliteimg.paste(coloredblotimg, self.smallblot_pos_cropped, coloredblotimg)
+    def draw_bulb_u(self, bulbsimg):
+        copy_paste_rgba(self.rsbulb_u_ongrid_cropped, bulbsimg, self.rsbulb_pos_cropped)
+    def draw_bulb_l(self, bulbsimg, color):
+        bulbsimg.paste(color, self.rsbulb_pos_cropped, self.rsbulb_l_ongrid_cropped)
 
 # idealEnd should be exactly right of or exactly below idealBegin
 class Slinger:

@@ -5,29 +5,28 @@ from .slinger import Slinger
 from .howbig import Howbig
 from .common import *
 
-width = 1920
-height = 1080
 rel_delta = 1/3
 
 class Partitioning:
-    def __init__(self, layout, weights):
-        self.tiling = Tiling(size=(width, height), layout=layout, weights=weights)
-        self.howbig = Howbig(self.tiling.total_weight)
+    def __init__(self, size, layout, weights):
+        self.size = size
+        self.tiling = Tiling(size=self.size, layout=layout, weights=weights)
+        self.howbig = Howbig(size=self.size, weight=self.tiling.total_weight)
         hh = self.howbig.hh
         # initial vertex range on boundary
         for fv in self.tiling.fvs:
-            if fv.p[0] == 0 or fv.p[0] == width:
+            if fv.p[0] == 0 or fv.p[0] == self.size[0]:
                 fv.axmin = fv.p[0]
                 fv.axmax = fv.p[0]
             else:
                 fv.axmin = max(0, fv.p[0] - hh)
-                fv.axmax = min(width, fv.p[0] + hh)
-            if fv.p[1] == 0 or fv.p[1] == height:
+                fv.axmax = min(self.size[0], fv.p[0] + hh)
+            if fv.p[1] == 0 or fv.p[1] == self.size[1]:
                 fv.aymin = fv.p[1]
                 fv.aymax = fv.p[1]
             else:
                 fv.aymin = max(0, fv.p[1] - hh)
-                fv.aymax = min(height, fv.p[1] + hh)
+                fv.aymax = min(self.size[1], fv.p[1] + hh)
         # limit vertex range based on edges
         for fe in self.tiling.fes:
             nhe, phe = fe.hes

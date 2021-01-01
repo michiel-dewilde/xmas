@@ -13,9 +13,10 @@ gbulb_unlit.putalpha(gbulb_unlit_a)
 gbulb_lightonly = Image.open(os.path.join(slinger_data, 'bulb-lightonly.png'))
 
 class Howbig:
-    def __init__(self, weight):
-        scale = 5 / weight
-        self.hh = 20 * scale
+    def __init__(self, size, weight):
+        self.size = size
+        scale = math.sqrt(size[0]/1920 * size[1]/1080 * 5/weight)
+        self.hh = round(20 * scale)
         self.stick = 10 * scale
         self.bulbsize = 3 * self.stick
         self.knottobulb = self.stick + 2/3 * self.bulbsize
