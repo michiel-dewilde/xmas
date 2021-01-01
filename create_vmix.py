@@ -43,5 +43,8 @@ clips.append(get_arrclip('d', timeoffset + m2t(91), timeoffset + m2t(95)))
 
 #vmix = moviepy.editor.CompositeVideoClip(clips=clips, size=size).with_duration(totalduration).fadeout(1)
 vmix = FastCompositeVideoClip(clips=clips, size=size).with_duration(totalduration).fadeout(1)
-vmix.write_videofile('vmix.mp4', fps=framerate, preset='slow', ffmpeg_params=['-profile:v','high','-crf','22','-coder','1','-g',f'{framerate//2}','-bf','2'], logger='bar', audio=False)
+if not os.path.exists('vmix.mp4'):
+    vmix.write_videofile('vmix.mp4', fps=framerate, preset='slow', ffmpeg_params=['-profile:v','high','-crf','22','-coder','1','-g',f'{framerate//2}','-bf','2'], logger='bar', audio=False)
 #vmix.write_videofile('vmix.mp4', fps=framerate, preset='fast', ffmpeg_params=['-crf','12'], logger='bar', audio=False)
+if not os.path.exists('vmix265.mp4'):
+    vmix.write_videofile('vmix265.mp4', fps=framerate, codec='libx265', preset='slow', ffmpeg_params=['-profile:v','main10','-crf','22','-pix_fmt','yuv420p'], logger='bar', audio=False)
