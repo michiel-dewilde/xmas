@@ -139,14 +139,19 @@ class Light:
     def prepare_bitmaps(self):
         self.prepare_highlight()
         self.prepare_bulb()
-    def draw_highlight(self, hiliteimg, color):
-        coloredblotimg = Image.new("RGBA", self.smallblot_ongrid_cropped.size, color)
-        coloredblotimg.putalpha(self.smallblot_ongrid_cropped)
-        hiliteimg.paste(coloredblotimg, self.smallblot_pos_cropped, coloredblotimg)
+    def draw_highlight(self, hiliteimg, hsvcolor):
+        h,s,v = hsvcolor
+        weighing = round(255*v)
+        if (weighing == 0):
+            return
+        weightedblotimg = Image.new("L", self.smallblot_ongrid_cropped.size, 0)
+        weightedblotimg.paste(weighing, mask=self.smallblot_ongrid_cropped)
+        hiliteimg.paste(tuple(round(255*i) for i in colorsys.hsv_to_rgb(h,s,1)), self.smallblot_pos_cropped, weightedblotimg)
     def draw_bulb_u(self, bulbsimg):
         alpha_composite_rgba(self.rsbulb_u_ongrid_cropped, bulbsimg, self.rsbulb_pos_cropped)
-    def draw_bulb_l(self, bulbsimg, color):
-        bulbsimg.paste(color, self.rsbulb_pos_cropped, self.rsbulb_l_ongrid_cropped)
+    def draw_bulb_l(self, bulbsimg, hsvcolor):
+        h,s,v = hsvcolor
+        bulbsimg.paste(tuple(round(255*i) for i in colorsys.hsv_to_rgb(h,min(s, 8*v),(1 + 7*v)/8)), self.rsbulb_pos_cropped, self.rsbulb_l_ongrid_cropped)
 
 # idealEnd should be exactly right of or exactly below idealBegin
 class Slinger:

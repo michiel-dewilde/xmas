@@ -7,16 +7,16 @@ from scripts.common import *
 #layout = json.loads('{"h":[{"v":["a","a","a"]},{"v":["a","a"]}]}')
 size = (1920, 1080)
 layout = json.loads('{"h": [{"ccw":{"a":1,"c":"a","d":["a","a","a","a"]}}, {"h":[{"v":["a","a","a"]},{"v":["a","a"]}]}]}')
-#layout = json.loads('{"h": ["a","a"]}')
+#layout = json.loads('{"h": [{"v":["a","a"]},{"v":["a","a"]}]}')
 weights = {'a': 1.0}
 part = Partitioning(size=size, layout=layout, weights=weights)
 
 workimg = Image.new("RGBA", size, "black")
-#black = True
+black = True
 for tile in part.tiling.tiles:
-    color = tuple(round(255 * i) for i in colorsys.hsv_to_rgb(random.random(), random.random(), random.random()))
-    #color = "black" if black else "white"
-    #black = not black
+    #color = tuple(round(255 * i) for i in colorsys.hsv_to_rgb(random.random(), random.random(), random.random()))
+    color = "black" if black else "white"
+    black = not black
     tileimg = Image.new("RGB", tile.mask.size, color)
     workimg.paste(tileimg, box=tile.maskpos, mask=tile.mask)
 
@@ -26,13 +26,9 @@ for fe in part.tiling.fes:
     if fe.slinger is None:
         continue
     for light in fe.slinger.lights:
-        if on:
-            light.color = tuple(round(255 * i) for i in colorsys.hsv_to_rgb(random.random(), 1.0, 1.0))
-            #light.color = (0,0,0)
-            light.draw_highlight(workimg, light.color)
-        else:
-            light.color = (32,32,32)
-        on = not on
+        light.hsvcolor = (random.random(), random.random(), 1) if on else (0,0,0)
+        light.draw_highlight(workimg, light.hsvcolor)
+        #on = not on
 
 #workimg.paste("darkgreen", mask=part.slinger_mask)
 #alpha_composite_rgba(part.unlit_bulbs_img, workimg)
@@ -47,7 +43,7 @@ for fe in part.tiling.fes:
     if fe.slinger is None:
         continue
     for light in fe.slinger.lights:
-        light.draw_bulb_l(workimg, light.color)
+        light.draw_bulb_l(workimg, light.hsvcolor)
 
 workimg.show()
 

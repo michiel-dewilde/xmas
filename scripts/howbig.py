@@ -34,7 +34,7 @@ class Howbig:
         self.bigblot_side = round(4 * self.blotsize)
         self.blot_scale = self.blotsize / self.bigblot_side
         blotkernel = gkern2d(self.bigblot_side, 3)
-        blotkernel = np.round(blotkernel*(128/np.max(blotkernel)))
+        blotkernel = np.round(blotkernel*(255/np.max(blotkernel)))
         blotdata = np.zeros((self.bigblot_side, self.bigblot_side), dtype=np.uint8)
         blotdata[:,:] = blotkernel
         self.bigblot = Image.fromarray(blotdata, 'L')
