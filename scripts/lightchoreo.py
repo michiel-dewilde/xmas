@@ -335,14 +335,14 @@ add_array_change(3, 95, np.broadcast_to(darkgreen[np.newaxis,:], (maxlights//4, 
 add_all_const(95+3/4, 95+3.25/4, brightyellow)
 add_all_const(95+3.5/4, 96, brightyellow)
 
-yeloframe = math.ceil(framerate*(m2t(96) + 5))
+yeloframe = math.ceil(framerate*171)
 endperiod = 1
 endperiodframes = endperiod * framerate
 sine = np.tile(np.sin(np.linspace(0, 2*np.pi, endperiodframes+1))[:-1], math.ceil((maxframe-yeloframe+endperiodframes)/framerate))
 for i in range(maxlights):
     offset = random.randrange(endperiodframes)
-    choreo[yeloframe:,i] = yellow + np.outer((1 + sine[offset:offset + maxframe - yeloframe])/ 2, brightyellow - yellow)
-endlightson = 5
+    choreo[yeloframe:,i] = 0.75*yellow + np.outer((1 + sine[offset:offset + maxframe - yeloframe])/ 2, brightyellow - 0.75*yellow)
+endlightson = 1
 endlightsonframes = endlightson * framerate
 choreo[yeloframe:yeloframe+endlightsonframes,:] = np.linspace(0, 1, endlightsonframes+1)[:-1,np.newaxis,np.newaxis] * choreo[yeloframe:yeloframe+endlightsonframes,:]
 

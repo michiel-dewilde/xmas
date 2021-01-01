@@ -67,6 +67,9 @@ def get_tileclip(tile, id, whichbox):
             clip = clip.fx(moviepy.video.fx.mirror_x)
 
         clip = clip.fx(moviepy.video.fx.crop, x1=cropdata.crop.x, y1=cropdata.crop.y, width=cropdata.crop.w, height=cropdata.crop.h)
+
+        if minput.speed:
+            clip = clip.fx(moviepy.video.fx.speedx, minput.speed)
         
         maskvideo = moviepy.video.VideoClip.ImageClip(np.array(tile.mask)/255, is_mask=True)
         return clip.with_mask(maskvideo).with_position(tile.maskpos)

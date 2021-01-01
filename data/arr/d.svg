@@ -12,11 +12,11 @@
    version="1.2"
    viewBox="0 0 1920 1080"
    width="100%"
-   id="svg11"
+   id="svg13"
    sodipodi:docname="d.svg"
    inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)">
   <metadata
-     id="metadata15">
+     id="metadata17">
     <rdf:RDF>
       <cc:Work
          rdf:about="">
@@ -37,77 +37,99 @@
      inkscape:pageshadow="2"
      inkscape:window-width="1920"
      inkscape:window-height="1017"
-     id="namedview13"
+     id="namedview15"
      showgrid="false"
-     inkscape:zoom="0.38375274"
-     inkscape:cx="876.46346"
-     inkscape:cy="646.4943"
+     inkscape:zoom="0.54270833"
+     inkscape:cx="990.96292"
+     inkscape:cy="580.78558"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg11" />
+     inkscape:current-layer="svg13"
+     inkscape:document-rotation="0" />
   <defs
      id="defs2" />
   <g
-     id="g844">
+     id="g846">
     <image
        sodipodi:absref="C:\kd\xmas\data\clips\kbox\extra-dans-florentine-rosalie.png"
        xlink:href="../clips/kbox/extra-dans-florentine-rosalie.png"
-       y="521.45868"
-       x="702.03455"
-       width="598.51239"
+       y="263.74725"
+       x="140.41504"
+       width="527.83838"
        id="extra-dans-florentine-rosalie"
-       height="494.94141" />
+       height="436.49731" />
     <image
        sodipodi:absref="C:\kd\xmas\data\clips\kbox\extra-xylo-florentine.png"
        xlink:href="../clips/kbox/extra-xylo-florentine.png"
-       y="-18.426155"
-       x="1370.9171"
-       width="570.4541"
+       style="stroke-width:1.00184"
+       y="263.74725"
+       x="668.25342"
+       width="501.25067"
        id="extra-xylo-florentine"
-       height="519.28552" />
+       height="457.9668" />
     <image
        sodipodi:absref="C:\kd\xmas\data\clips\kbox\extra-xylo-rosalie.png"
        xlink:href="../clips/kbox/extra-xylo-rosalie.png"
-       y="521.45868"
-       x="1376.4449"
-       width="563.82373"
+       y="238.09296"
+       x="1167.2457"
+       width="497.2457"
        id="extra-xylo-rosalie"
-       height="525.39221" />
+       height="463.35239" />
+  </g>
+  <g
+     id="g841">
+    <image
+       sodipodi:absref="C:\kd\xmas\data\clips\kbox\extra-poes-yeti2.png"
+       xlink:href="../clips/kbox/extra-poes-yeti2.png"
+       style="stroke-width:1.6549"
+       y="-82.331543"
+       x="780.41504"
+       width="243.08882"
+       id="extra-poes-yeti2"
+       height="346.0788" />
     <image
        sodipodi:absref="C:\kd\xmas\data\clips\kbox\mall-tineke2.png"
        xlink:href="../clips/kbox/mall-tineke2.png"
-       y="75.547028"
-       x="690.979"
-       width="725.69177"
+       y="-121.90705"
+       x="1024.4915"
+       width="640"
        id="mall-tineke2"
-       height="408.2016" />
+       height="360" />
+    <image
+       sodipodi:absref="C:\kd\xmas\data\clips\kbox\perc2-vj2.png"
+       xlink:href="../clips/kbox/perc2-vj2.png"
+       y="-96.252747"
+       x="140.41504"
+       width="640"
+       id="perc2-vj3"
+       height="360" />
   </g>
   <g
-     id="g849">
+     id="g851">
     <image
        sodipodi:absref="C:\kd\xmas\data\clips\kbox\perc1-koend.png"
        xlink:href="../clips/kbox/perc1-koend.png"
-       y="-140.03838"
-       x="5.5278711"
-       width="725.69177"
+       y="721.71405"
+       x="28.253418"
+       width="640"
        id="perc1-koend"
-       height="408.2016" />
+       height="360" />
     <image
        sodipodi:absref="C:\kd\xmas\data\clips\kbox\perc2-koend-kids1.png"
        xlink:href="../clips/kbox/perc2-koend-kids1.png"
-       y="247.76772"
-       x="3.685281"
-       width="725.69177"
+       y="721.71405"
+       x="668.25342"
+       width="640"
        id="perc2-koend-kids1"
-       height="408.2016" />
+       height="360" />
     <image
        sodipodi:absref="C:\kd\xmas\data\clips\kbox\timp-koend.png"
        xlink:href="../clips/kbox/timp-koend.png"
-       y="655.9693"
-       x="3.685281"
-       width="691.43329"
+       y="703.87714"
+       x="1308.2534"
+       width="609.7868"
        id="timp-koend"
-       height="428.42679" />
+       height="377.83691" />
   </g>
 </svg>

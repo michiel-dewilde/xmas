@@ -36,26 +36,27 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:window-width="1671"
-     inkscape:window-height="1218"
+     inkscape:window-height="1041"
      id="namedview12"
      showgrid="false"
      inkscape:zoom="0.44270833"
      inkscape:cx="540"
      inkscape:cy="960"
-     inkscape:window-x="1690"
-     inkscape:window-y="211"
+     inkscape:window-x="233"
+     inkscape:window-y="0"
      inkscape:window-maximized="0"
-     inkscape:current-layer="svg10" />
+     inkscape:current-layer="svg10"
+     inkscape:document-rotation="0" />
   <defs
      id="defs2" />
   <image
      sodipodi:absref="C:\kd\xmas\data\avg\extra-boom-famdewinter.png"
      xlink:href="../avg/extra-boom-famdewinter.png"
-     id="image4"
-     y="0"
-     x="0"
+     height="1920"
      width="1080"
-     height="1920" />
+     x="0"
+     y="0"
+     id="image4" />
   <rect
      fill="none"
      height="1920"
@@ -70,8 +71,8 @@
      height="1400.4706"
      id="kbox"
      stroke="#00ff00"
-     stroke-width="10"
-     width="1080"
+     stroke-width="9.99996"
+     width="960.28235"
      x="0"
      y="257.50589" />
   <rect
@@ -79,8 +80,8 @@
      height="1400.4706"
      id="mbox"
      stroke="#ffff00"
-     stroke-width="10"
-     width="1080"
+     stroke-width="9.99996"
+     width="960.28235"
      x="0"
      y="257.50589" />
   <rect
@@ -88,8 +89,8 @@
      height="1400.4706"
      id="hbox"
      stroke="#ff0000"
-     stroke-width="10"
-     width="1080"
+     stroke-width="9.99996"
+     width="960.28235"
      x="0"
      y="257.50589" />
 </svg>

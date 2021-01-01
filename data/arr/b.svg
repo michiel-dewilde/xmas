@@ -45,86 +45,87 @@
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg13" />
+     inkscape:current-layer="svg13"
+     inkscape:document-rotation="0" />
   <defs
      id="defs2" />
   <image
      sodipodi:absref="C:\kd\xmas\data\clips\kbox\extra-boom-famdewinter.png"
      xlink:href="../clips/kbox/extra-boom-famdewinter.png"
-     y="56.831665"
-     x="641.42371"
-     width="784.37488"
+     height="1016.7823"
      id="extra-boom-famdewinter"
-     height="1016.7823" />
+     width="784.37488"
+     x="904.61401"
+     y="12.532309" />
   <g
-     id="g852">
+     id="g860">
     <image
        sodipodi:absref="C:\kd\xmas\data\clips\kbox\asax2-dirk.png"
        xlink:href="../clips/kbox/asax2-dirk.png"
-       y="504.10046"
-       x="1718.6733"
-       width="285.34201"
+       height="559.00519"
        id="asax2-dirk"
-       height="559.00519" />
-    <image
-       sodipodi:absref="C:\kd\xmas\data\clips\kbox\bsax-astrid.png"
-       xlink:href="../clips/kbox/bsax-astrid.png"
-       y="-16.621838"
-       x="1735.4387"
-       width="300.2608"
-       id="bsax-astrid"
-       height="531.23059" />
-    <image
-       sodipodi:absref="C:\kd\xmas\data\clips\kbox\tsax-astrid.png"
-       xlink:href="../clips/kbox/tsax-astrid.png"
-       y="1.5264684"
-       x="1425.7986"
-       width="317.3815"
-       id="tsax-astrid"
-       height="502.57401" />
-    <image
-       sodipodi:absref="C:\kd\xmas\data\clips\kbox\tsax-koend.png"
-       xlink:href="../clips/kbox/tsax-koend.png"
-       y="504.10046"
-       x="1425.7986"
-       width="292.87469"
-       id="tsax-koend"
-       height="544.62769" />
-  </g>
-  <g
-     id="g846">
-    <image
-       sodipodi:absref="C:\kd\xmas\data\clips\kbox\asax1-astrid.png"
-       xlink:href="../clips/kbox/asax1-astrid.png"
-       y="1.5264684"
-       x="337.95221"
-       width="303.4715"
-       id="asax1-astrid"
-       height="525.61011" />
-    <image
-       sodipodi:absref="C:\kd\xmas\data\clips\kbox\asax1-jonathan.png"
-       xlink:href="../clips/kbox/asax1-jonathan.png"
-       style="stroke-width:0.943671"
-       y="527.13654"
-       x="313.65405"
-       width="327.76965"
-       id="asax1-jonathan"
-       height="546.47742" />
+       width="285.34201"
+       x="1674.639"
+       y="502.93399" />
     <image
        sodipodi:absref="C:\kd\xmas\data\clips\kbox\asax1-regine.png"
        xlink:href="../clips/kbox/asax1-regine.png"
-       y="527.13654"
-       x="14.115955"
-       width="299.53809"
+       height="532.51221"
        id="asax1-regine"
-       height="532.51221" />
+       width="299.53809"
+       x="1660.443"
+       y="-29.578217" />
+  </g>
+  <g
+     id="g856">
+    <image
+       sodipodi:absref="C:\kd\xmas\data\clips\kbox\tsax-koend.png"
+       xlink:href="../clips/kbox/tsax-koend.png"
+       height="544.62769"
+       id="tsax-koend"
+       width="292.87469"
+       x="-6.1025696"
+       y="524.93958" />
+    <image
+       sodipodi:absref="C:\kd\xmas\data\clips\kbox\asax1-jonathan.png"
+       xlink:href="../clips/kbox/asax1-jonathan.png"
+       height="546.47742"
+       id="asax1-jonathan"
+       width="327.76965"
+       x="621.14374"
+       y="553.19501"
+       style="stroke-width:0.943671" />
+    <image
+       sodipodi:absref="C:\kd\xmas\data\clips\kbox\bsax-astrid.png"
+       xlink:href="../clips/kbox/bsax-astrid.png"
+       height="531.23059"
+       id="bsax-astrid"
+       width="300.2608"
+       x="-18.386349"
+       y="-6.291038" />
+    <image
+       sodipodi:absref="C:\kd\xmas\data\clips\kbox\tsax-astrid.png"
+       xlink:href="../clips/kbox/tsax-astrid.png"
+       height="502.57401"
+       id="tsax-astrid"
+       width="317.3815"
+       x="305.26993"
+       y="16.745064" />
+    <image
+       sodipodi:absref="C:\kd\xmas\data\clips\kbox\asax1-astrid.png"
+       xlink:href="../clips/kbox/asax1-astrid.png"
+       height="525.61011"
+       id="asax1-astrid"
+       width="303.4715"
+       x="595.93103"
+       y="-6.291038" />
     <image
        sodipodi:absref="C:\kd\xmas\data\clips\kbox\tsax-steven.png"
        xlink:href="../clips/kbox/tsax-steven.png"
-       y="52.240669"
-       x="-22.225231"
-       width="335.8793"
+       height="474.8959"
        id="tsax-steven"
-       height="474.8959" />
+       width="335.8793"
+       x="286.77213"
+       y="524.93958" />
   </g>
 </svg>
