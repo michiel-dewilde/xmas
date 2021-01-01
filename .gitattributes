@@ -20,6 +20,10 @@
 *.exe           -text filter=lfs diff=lfs merge=lfs
 *.jpg           -text filter=lfs diff=lfs merge=lfs
 *.JPG           -text filter=lfs diff=lfs merge=lfs
+*.M4A           -text filter=lfs diff=lfs merge=lfs
+*.m4a           -text filter=lfs diff=lfs merge=lfs
+*.M4V           -text filter=lfs diff=lfs merge=lfs
+*.m4v           -text filter=lfs diff=lfs merge=lfs
 *.MOV           -text filter=lfs diff=lfs merge=lfs
 *.mov           -text filter=lfs diff=lfs merge=lfs
 *.MP3           -text filter=lfs diff=lfs merge=lfs
