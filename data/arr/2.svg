@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   height="100%"
+   version="1.2"
+   viewBox="0 0 1920 1080"
+   width="100%"
+   id="svg22"
+   sodipodi:docname="2.svg"
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)">
+  <metadata
+     id="metadata26">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="3375"
+     inkscape:window-height="1471"
+     id="namedview24"
+     showgrid="false"
+     inkscape:zoom="0.54270833"
+     inkscape:cx="606.50418"
+     inkscape:cy="316.22894"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg22" />
+  <defs
+     id="defs2" />
+  <g
+     id="g855">
+    <image
+       sodipodi:absref="C:\kd\xmas\data\clips\kbox\bar-matthias-video.png"
+       xlink:href="../clips/kbox/bar-matthias-video.png"
+       y="11.471344"
+       x="32.081169"
+       width="448.4046"
+       id="bar-matthias-video"
+       height="256.9108" />
+    <image
+       sodipodi:absref="C:\kd\xmas\data\clips\kbox\bsn-chris.png"
+       xlink:href="../clips/kbox/bsn-chris.png"
+       y="7.0739827"
+       x="1429.5398"
+       width="482.7739"
+       id="bsn-chris"
+       height="238.621" />
+    <image
+       sodipodi:absref="C:\kd\xmas\data\clips\kbox\horn-nathalie.png"
+       xlink:href="../clips/kbox/horn-nathalie.png"
+       y="7.0739827"
+       x="960.09045"
+       width="469.44931"
+       id="horn-nathalie"
+       height="245.39391" />
+    <image
+       sodipodi:absref="C:\kd\xmas\data\clips\kbox\perc1-koend.png"
+       xlink:href="../clips/kbox/perc1-koend.png"
+       y="18.442442"
+       x="447.98868"
+       width="452.54831"
+       id="perc1-koend"
+       height="254.5584" />
+  </g>
+  <g
+     id="g910"
+     transform="translate(-16.583476,14.740867)">
+    <g
+       id="g888">
+      <image
+         sodipodi:absref="C:\kd\xmas\data\clips\kbox\asax2-dirk.png"
+         xlink:href="../clips/kbox/asax2-dirk.png"
+         style="stroke-width:1"
+         y="203.02078"
+         x="1682.1318"
+         width="258.5621"
+         id="asax2-dirk"
+         height="445.54089" />
+      <image
+         sodipodi:absref="C:\kd\xmas\data\clips\kbox\bsax-astrid.png"
+         xlink:href="../clips/kbox/bsax-astrid.png"
+         style="stroke-width:0.999997"
+         y="635.0058"
+         x="1676.0953"
+         width="258.5621"
+         id="bsax-astrid"
+         height="445.54089" />
+    </g>
+    <g
+       id="g884">
+      <image
+         sodipodi:absref="C:\kd\xmas\data\clips\kbox\asax1-jonathan.png"
+         xlink:href="../clips/kbox/asax1-jonathan.png"
+         y="494.83939"
+         x="1278.2836"
+         width="403.84821"
+         id="asax1-jonathan"
+         height="285.25571" />
+      <image
+         sodipodi:absref="C:\kd\xmas\data\clips\kbox\cl3-sanderijn-video.png"
+         xlink:href="../clips/kbox/cl3-sanderijn-video.png"
+         y="780.09509"
+         x="1278.2836"
+         width="372.01529"
+         id="cl3-sanderijn-video"
+         height="309.6647" />
+      <image
+         sodipodi:absref="C:\kd\xmas\data\clips\kbox\horn-inge.png"
+         xlink:href="../clips/kbox/horn-inge.png"
+         y="203.02078"
+         x="1287.366"
+         width="394.76581"
+         id="horn-inge"
+         height="291.8186" />
+    </g>
+    <g
+       id="g873">
+      <g
+         id="g864">
+        <image
+           sodipodi:absref="C:\kd\xmas\data\clips\kbox\cl1-heleenba.png"
+           xlink:href="../clips/kbox/cl1-heleenba.png"
+           y="639.38574"
+           x="-1.4077679e-05"
+           width="259.89221"
+           id="cl1-heleenba"
+           height="443.26059" />
+        <image
+           sodipodi:absref="C:\kd\xmas\data\clips\kbox\cl1-roland.png"
+           xlink:href="../clips/kbox/cl1-roland.png"
+           y="641.1203"
+           x="240.64963"
+           width="258.5621"
+           id="cl1-roland"
+           height="445.54089" />
+        <image
+           sodipodi:absref="C:\kd\xmas\data\clips\kbox\cl-geert.png"
+           xlink:href="../clips/kbox/cl-geert.png"
+           y="641.1203"
+           x="499.21173"
+           width="254.5584"
+           id="cl-geert"
+           height="452.54831" />
+      </g>
+      <g
+         id="g859">
+        <image
+           sodipodi:absref="C:\kd\xmas\data\clips\kbox\tbn-michieldw3-video.png"
+           xlink:href="../clips/kbox/tbn-michieldw3-video.png"
+           y="288.54279"
+           x="396.88165"
+           width="342.90439"
+           id="tbn-michieldw3-video"
+           height="335.9537" />
+        <image
+           sodipodi:absref="C:\kd\xmas\data\clips\kbox\tbn-simon2-video.png"
+           xlink:href="../clips/kbox/tbn-simon2-video.png"
+           y="310.92953"
+           x="18.42609"
+           width="354.71149"
+           id="tbn-simon2-video"
+           height="324.771" />
+      </g>
+    </g>
+    <g
+       id="g879">
+      <image
+         sodipodi:absref="C:\kd\xmas\data\clips\kbox\asax1-regine.png"
+         xlink:href="../clips/kbox/asax1-regine.png"
+         y="221.14351"
+         x="745.65308"
+         width="254.5584"
+         id="asax1-regine"
+         height="452.54831" />
+      <image
+         sodipodi:absref="C:\kd\xmas\data\clips\kbox\cl2-fienc.png"
+         xlink:href="../clips/kbox/cl2-fienc.png"
+         y="632.09784"
+         x="1026.5695"
+         width="251.7141"
+         id="cl2-fienc"
+         height="457.66199" />
+      <image
+         sodipodi:absref="C:\kd\xmas\data\clips\kbox\cl3-carolien.png"
+         xlink:href="../clips/kbox/cl3-carolien.png"
+         y="637.21155"
+         x="772.01105"
+         width="254.5584"
+         id="cl3-carolien"
+         height="452.54828" />
+      <image
+         sodipodi:absref="C:\kd\xmas\data\clips\kbox\tsax-steven.png"
+         xlink:href="../clips/kbox/tsax-steven.png"
+         y="228.51395"
+         x="992.84106"
+         width="285.4425"
+         id="tsax-steven"
+         height="403.58389" />
+    </g>
+  </g>
+</svg>

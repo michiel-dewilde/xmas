@@ -1,2 +1,95 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<svg baseProfile="tiny" height="100%" version="1.2" viewBox="0 0 720 1280" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xlink="http://www.w3.org/1999/xlink"><defs /><image height="1280" width="720" x="0" xlink:href="../avg/cl-geert.png" y="0" /><rect fill="none" height="1280" id="cbox" stroke="rgb(0%,0%,100%)" stroke-width="7" width="720" x="0" y="0" /><rect fill="none" height="1280" id="kbox" stroke="rgb(0%,100%,0%)" stroke-width="7" width="720" x="0" y="0" /><rect fill="none" height="1280" id="mbox" stroke="rgb(100%,100%,0%)" stroke-width="7" width="720" x="0" y="0" /><rect fill="none" height="1280" id="hbox" stroke="rgb(100%,0%,0%)" stroke-width="7" width="720" x="0" y="0" /></svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   height="100%"
+   version="1.2"
+   viewBox="0 0 720 1280"
+   width="100%"
+   id="svg10"
+   sodipodi:docname="cl-geert.svg"
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)">
+  <metadata
+     id="metadata14">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1902"
+     inkscape:window-height="1086"
+     id="namedview12"
+     showgrid="false"
+     inkscape:zoom="0.6640625"
+     inkscape:cx="360"
+     inkscape:cy="640"
+     inkscape:window-x="1217"
+     inkscape:window-y="248"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg10" />
+  <defs
+     id="defs2" />
+  <image
+     sodipodi:absref="C:\kd\xmas\data\avg\cl-geert.png"
+     xlink:href="../avg/cl-geert.png"
+     id="image4"
+     y="0"
+     x="0"
+     width="720"
+     height="1280" />
+  <rect
+     fill="none"
+     height="1280"
+     id="cbox"
+     stroke="rgb(0%,0%,100%)"
+     stroke-width="7"
+     width="720"
+     x="0"
+     y="0" />
+  <rect
+     fill="none"
+     height="1280"
+     id="kbox"
+     stroke="rgb(0%,100%,0%)"
+     stroke-width="7"
+     width="720"
+     x="0"
+     y="0" />
+  <rect
+     fill="none"
+     height="1227.2941"
+     id="mbox"
+     stroke="#ffff00"
+     stroke-width="7"
+     width="641.69409"
+     x="78.305862"
+     y="52.705883" />
+  <rect
+     fill="none"
+     height="307.19995"
+     id="hbox"
+     stroke="#ff0000"
+     stroke-width="7"
+     width="289.31766"
+     x="224.37646"
+     y="52.705883" />
+</svg>

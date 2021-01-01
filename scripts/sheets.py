@@ -6,6 +6,7 @@ class Minput:
         self.filename = None
         self.rotation = None
         self.mirrored = None
+        self.weight = None
 
 class Sheets:
     def read_minputs(self, wb):
@@ -18,6 +19,8 @@ class Sheets:
             for key, value in zip(keys, values):
                 if key == 'mirrored':
                     minput.mirrored = bool(value)
+                elif key == 'weight':
+                    minput.weight = float(value)
                 else:
                     setattr(minput, key, value)
             minput.key = os.path.splitext(minput.filename)[0]
