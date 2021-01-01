@@ -52,11 +52,11 @@
   <image
      sodipodi:absref="C:\kd\xmas\data\avg\asax1-regine.png"
      xlink:href="../avg/asax1-regine.png"
-     height="1280"
-     width="720"
-     x="0"
+     id="image4"
      y="0"
-     id="image4" />
+     x="0"
+     width="720"
+     height="1280" />
   <rect
      fill="none"
      height="1280"
@@ -81,8 +81,8 @@
      id="mbox"
      stroke="#ffff00"
      stroke-width="7"
-     width="602.5412"
-     x="117.45882"
+     width="720.00006"
+     x="2.5094162e-06"
      y="87.521553" />
   <rect
      fill="none"
@@ -90,7 +90,7 @@
      id="hbox"
      stroke="#ff0000"
      stroke-width="7.00002"
-     width="372.1412"
-     x="117.45882"
+     width="489.60004"
+     x="7.551509e-06"
      y="87.521553" />
 </svg>

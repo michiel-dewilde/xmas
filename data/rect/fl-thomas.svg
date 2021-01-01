@@ -52,11 +52,11 @@
   <image
      sodipodi:absref="C:\kd\xmas\data\avg\fl-thomas.png"
      xlink:href="../avg/fl-thomas.png"
-     id="image4"
-     y="0"
-     x="0"
+     height="640"
      width="352"
-     height="640" />
+     x="0"
+     y="0"
+     id="image4" />
   <rect
      fill="none"
      height="640"
@@ -83,7 +83,7 @@
      stroke-width="3.00001"
      width="313.60001"
      x="38.399998"
-     y="105.41176" />
+     y="126.47058" />
   <rect
      fill="none"
      height="222.87062"
@@ -92,5 +92,5 @@
      stroke-width="3"
      width="254.87059"
      x="76.047058"
-     y="105.41176" />
+     y="126.47058" />
 </svg>
