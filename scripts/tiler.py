@@ -69,6 +69,7 @@ class Fhe: # final halfedge
         self.ishe = None
         self.prev = None
         self.next = None
+        self.source = None
         self.target = None
 
 class Fe: # final edge
@@ -277,6 +278,7 @@ class Tiling:
             fhes.extend(tile.lishe.fhes)
             fhes.extend(tile.bishe.fhes)
             fhes.extend(reversed(tile.rishe.fhes))
+            tile.fhes = list(fhes)
             fhes.append(fhes[0])
             for first, second in zip(fhes[:-1], fhes[1:]):
                 first.next = second
@@ -295,6 +297,7 @@ class Tiling:
                 circ = fhe
                 while True:
                     circ.target = fv
+                    circ.twin.source = fv
                     fv.incident.append(circ)
                     circ = circ.next.twin
                     if circ == fhe:
